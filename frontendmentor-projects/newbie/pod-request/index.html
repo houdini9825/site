@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/favicon-32x32.png"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<script defer src="script.js"></script>
+
+		<title>Pod request access landing page</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="person-image">
+				<img
+					src="assets/tablet/image-host.jpg"
+					alt=""
+					class="tablet-image"
+				/>
+				<img class="desktop-image" src="assets/desktop/image-host.jpg" alt="" />
+			</div>
+			<header><img src="assets/desktop/logo.svg" alt="" /></header>
+			<section class="main-content-container">
+				<h1><span>Publish your podcasts</span> everywhere.</h1>
+				<p>
+					Upload your audio to Pod with a single click. We'll then
+					distribute your podcast to Spotify, Apple Podcasts, Google
+					Podcasts, Pocket Casts and more!
+				</p>
+				<div class="logo-container">
+					<img src="assets/desktop/spotify.svg" alt="" />
+					<img src="assets/desktop/apple-podcast.svg" alt="" />
+					<img src="assets/desktop/google-podcasts.svg" alt="" />
+					<img src="assets/desktop/pocket-casts.svg" alt="" />
+				</div>
+				<form action="">
+					<input
+						name="email"
+						id="email"
+						type="text"
+						placeholder="Email address" title="not working"
+					/>
+					<input
+						name="submit"
+						id="submit"
+						type="submit"
+						value="Request Access"
+					/>
+					<p class="form-error-message hidden">Oops! Please check your email.</p>
+				</form>
+			</section>
+			<div class="dot-container"><img src="assets/desktop/bg-pattern-dots.svg" alt=""></div>
+		</div>
+	</body>
+</html>

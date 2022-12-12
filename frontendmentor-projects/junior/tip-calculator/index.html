@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<script defer src="script.js"></script>
+		<title>Tip calculator app</title>
+	</head>
+	<body>
+		<header><img src="images/logo.svg" alt="" /></header>
+		<form action="">
+			<div class="calc-container">
+				<p class="bill-label">Bill</p>
+				<img src="images/icon-dollar.svg" alt="" class="dollar-icon" />
+				<input oninput="this.value = this.value.replace(/[^0-9.]/g, '')" type="text" name="bill" id="bill" placeholder="0"/>
+				<p class="select-tip">Select Tip %</p>
+				<div class="tip-percentages-container">
+					<button class="percentage">5%</button
+					><button class="percentage">10%</button
+					><button class="percentage">15%</button
+					><button class="percentage">25%</button
+					><button class="percentage">50%</button>
+					<input
+						type="text"
+						name="custompercent"
+						id="custompercent"
+						placeholder="Custom"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+					/>
+				</div>
+				<p class="number-of-people">Number of People</p>
+				<img class="person-img" src="images/icon-person.svg" alt="" />
+				<input oninput="this.value = this.value.replace(/[^0-9]/g, '')" type="text" name="numberpeople" id="numberpeople" placeholder="0"/>
+			</div>
+			<div class="total-container">
+				<div class="tip-amount-container">
+					<div class="tip-label-container">
+						<p class="tip-amount-label">Tip Amount</p>
+						<p class="tip-person-label">/ person</p>
+					</div>
+					<p class="tip-amount-person-value">$0.00</p>
+				</div>
+				<div class="total-amount-container">
+					<div class="total-label-container">
+						<p class="total-amount-label">Total</p>
+						<p class="total-person-label">/ person</p>
+					</div>
+					<p class="total-amount-person-value">$0.00</p>
+				</div>
+        <input type="submit" value="Reset" />
+			</div>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+* {
+	margin: 0;
+}
+
+body {
+	background-color: #131518;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+}
+.--hidden {
+	display: none;
+}
+
+.--active {
+	display: flex;
+	flex-direction: column;
+}
+
+.container {
+	width: 412px;
+	height: 416px;
+	background: radial-gradient(
+		98.96% 98.96% at 50% 0%,
+		#232a34 0%,
+		#181e27 100%
+	);
+	border-radius: 30px;
+	font-family: 'Overpass';
+	padding: 30px;
+	box-sizing: border-box;
+}
+
+.ty-container {
+	color: white;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 35px;
+}
+
+.ty-number-selected-container {
+	margin: 30px 0 0;
+	width: 193px;
+	min-height: 32px;
+	background: #262e38;
+	border-radius: 22.5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ty-number-selected-sentence {
+	margin: 0;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 24px;
+	color: #fc7614;
+}
+
+.ty-selected-number {
+	margin: 0;
+}
+
+.ty-thank-you {
+	margin: 30px 0 0;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 35px;
+
+	color: #ffffff;
+}
+
+.ty-paragraph {
+	margin: 10px 0 0;
+	font-family: 'Overpass';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 24px;
+	color: #969fad;
+}
+
+.question {
+	margin: 30px 0 0;
+	font-family: 'Overpass';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 35px;
+	color: white;
+}
+
+.paragraph {
+	margin: 10px 0 0;
+	font-family: 'Overpass';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 24px;
+	color: #969fad;
+}
+
+.star {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	width: 48px;
+	min-height: 48px;
+	background: #262e38;
+	border-radius: 50%;
+}
+
+.number-list {
+	list-style: none;
+	display: flex;
+	margin: 25px 0 0;
+	padding: 0;
+	justify-content: space-between;
+}
+
+.rating-number {
+	border-radius: 50%;
+	width: 51px;
+	height: 51px;
+	background: #262e38;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	font-family: 'Overpass';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	color: #7c8798;
+}
+
+.number:hover {
+	background: #7c8798;
+	color: white;
+}
+
+.submit {
+	margin: 30px 0;
+	background: #fc7614;
+	border-radius: 22.5px;
+	min-height: 45px;
+	width: 100%;
+	border: none;
+	font-family: 'Overpass';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 19px;
+	letter-spacing: 2px;
+	color: white;
+}
+
+.submit:hover {
+	background: white;
+	color: #fc7614;
+}
+
+.selected {
+	background: #fc7614;
+	color: white;
+}
+
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
+
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
+
+
+@media (max-width: 450px) {
+	.container {
+		width: 320px;
+		min-height: 360px;
+	}
+}

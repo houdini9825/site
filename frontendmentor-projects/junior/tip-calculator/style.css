@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+:root {
+  --color-dark-blue: #00474B;
+  --color-header: #3D6666;
+  --color-light-blue: #26C2AE;
+  --color-grey: #5E7A7D;
+  --color-white: #FFFFFF;
+  --color-light-grey: #F3F9FA;
+  --color-background: #C5E4E7;
+
+
+  --font-weight-primary: 700;
+  --font-family-primary: 'Space Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-primary);
+  font-size: 62.5%;
+  box-sizing: border-box;
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: var(--color-background);
+}
+
+header > img {
+  width: 8.7rem;
+  height: 5.3rem;
+  margin-top: 5rem;
+}
+
+form {
+  width: 37.5rem;
+  height: 78.9rem;
+  background-color: var(--color-white);
+  border-radius: 2.5rem 2.5rem 0 0;
+  box-shadow: 0px 32px 43px rgba(79, 166, 175, 0.200735);
+  margin-top: 4rem;
+  padding: 3.2rem;
+}
+
+.bill-label {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: var(--color-grey);
+}
+
+.dollar-icon {
+  position: absolute;
+  width: 1rem;
+  height: 1.6rem;
+  translate: 2rem 2.2rem;
+}
+
+input[name='bill'], input[name='numberpeople'] {
+width: 31.1rem;
+height: 4.8rem;
+background-color: var(--color-light-grey);
+border-radius: 0.5rem;
+border: none;
+outline: none;
+padding: 0.6rem 1.8rem;
+text-align: right;
+font-size: 2.4rem;
+line-height: 3.6rem;
+color: var(--color-dark-blue);
+margin-top: 0.6rem;
+}
+
+input[name='bill']::placeholder, input[name='numberpeople']::placeholder {
+  opacity: 0.35;
+}
+
+.select-tip {
+  color: var(--color-grey);
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  margin-top: 3.2rem;
+}
+
+.tip-percentages-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.6rem;
+  margin-top: 1.6rem;
+}
+
+.tip-percentages-container > button, input {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-primary);
+  width: 14.6rem;
+  height: 4.8rem;
+  border-radius: 0.5rem;
+  color: var(--color-white);
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  border: none;
+  outline: none;
+}
+
+button {
+  background-color: var(--color-dark-blue);
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #9FE8DF;
+}
+
+button:active {
+  translate: 0 0.1rem;
+}
+
+.percent-button-active {
+  background-color: #9FE8DF;
+}
+
+.tip-percentages-container > input {
+  background-color: var(--color-light-grey);
+  color: var(--color-grey);
+  text-align: right;
+  padding: 0.6rem 1.7rem;
+}
+
+.number-of-people {
+  color: var(--color-grey);
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  margin-top: 3.2rem;
+}
+
+.person-img {
+  position: absolute;
+  width: 1.3rem;
+  height: 1.6rem;
+  translate: 2rem 2.2rem;
+}
+
+.total-container {
+  display: flex;
+  flex-direction: column;
+  width: 32.7rem;
+  height: 25.7rem;
+  background-color: var(--color-dark-blue);
+  border-radius: 1.5rem;
+  padding: 2.4rem;
+  margin-top: 3.2rem;
+}
+
+.tip-amount-container, .total-amount-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.tip-label-container, .total-label-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.tip-amount-label, .total-amount-label {
+  color: var(--color-white);
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.tip-person-label, .total-person-label {
+  color: var(--color-grey);
+  font-size: 1.3rem;
+  line-height: 1.9rem;
+}
+
+.tip-amount-person-value, .total-amount-person-value {
+  color: var(--color-light-blue);
+  font-size: 3.2rem;
+  line-height: 4.7rem;
+  letter-spacing: -0.666667px;
+}
+
+input[type=submit] {
+  margin-top: 3.2rem;
+  width: 28.1rem;
+  height: 4.8rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-light-blue);
+  color: var(--color-dark-blue);
+  font-size: 2rem;
+  line-height: 3rem;
+  text-transform: uppercase;
+}
+
+input[type=submit]:hover {
+  cursor: pointer;
+  background-color: #9FE8DF;
+}
+
+input[type=submit]:active {
+  translate: 0 0.1rem;
+}
+
+input[type=text]:focus::placeholder {
+  color: transparent;
+}
+
+
+/* 920px */
+@media (min-width: 57.5em) {
+  body {
+    justify-content: center;
+  }
+
+  form {
+    width: 92rem;
+    height: 48.1rem;
+    border-radius: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 3.2rem;
+    margin-top: 8.7rem;
+  }
+
+  .calc-container {
+    width: 37.9rem;
+    height: 38.8rem;
+  }
+
+  .select-tip {
+    margin-top: 4rem;
+  }
+
+  .tip-percentages-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1.4rem;
+  }
+
+  .tip-percentages-container > button, input { 
+    width: 11.7rem;
+  }
+
+  .tip-percentages-container > input {
+    padding: 0.6rem 1.4rem;
+  }
+
+  .number-of-people {
+    margin-top: 4rem;
+  }
+
+  .total-container {
+    width: 41.3rem;
+    height: 41.7rem;
+    margin: 0;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 4rem;
+  }
+
+  .tip-amount-container {
+    margin: 0;
+  }
+
+  .total-amount-container {
+    margin-top: 2.5rem;
+  }
+
+  .tip-amount-person-value, .total-amount-person-value {
+    font-size: 4.8rem;
+    line-height: 7.1rem;
+    letter-spacing: -1px;
+  }
+
+
+  input[type=submit] {
+    width: 33.3rem;
+    height: 4.8rem;
+    margin-top: 12.2rem;
+  }
+}

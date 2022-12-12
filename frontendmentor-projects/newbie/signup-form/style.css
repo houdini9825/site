@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+	--color-orange: #ff7979;
+	--color-green: #38cc8b;
+	--color-purple: #5e54a4;
+	--color-dark-purple: #3d3b48;
+	--color-white: #ffffff;
+
+	--font-style-primary: 'Poppins', sans-serif;
+
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-semi-bold: 600;
+	--font-weight-bold: 700;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;
+	box-sizing: border-box;
+	font-family: var(--font-style-primary);
+}
+
+body {
+	min-height: 100vh;
+	min-width: 100vw;
+	background-color: var(--color-orange);
+	background-image: url(images/bg-intro-mobile.png);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 8.8rem 2.2rem;
+}
+
+header {
+	text-align: center;
+	width: 32.7rem;
+	height: 22.6rem;
+}
+
+h1 {
+	font-weight: var(--font-weight-bold);
+	color: var(--color-white);
+	line-height: 3.6rem;
+	font-size: 2.8rem;
+	font-style: normal;
+	letter-spacing: -0.291667px;
+}
+
+.description {
+	font-style: normal;
+	font-weight: var(--font-weight-medium);
+	font-size: 1.6rem;
+	line-height: 2.6rem;
+	color: var(--color-white);
+	margin-top: 1.6rem;
+}
+
+.deal-container {
+	width: 32.7rem;
+	height: 8.8rem;
+	border-radius: 1rem;
+	box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.14688);
+	background-color: var(--color-purple);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 1.8rem 6.6rem;
+	margin-top: 6.4rem;
+}
+
+.offering {
+	color: var(--color-white);
+	font-weight: var(--font-weight-regular);
+	letter-spacing: 0.267857px;
+	font-size: 1.5rem;
+	font-style: normal;
+	line-height: 2.6rem;
+}
+
+.offering > span {
+	font-weight: var(--font-weight-bold);
+}
+
+form {
+	margin-top: 2.4rem;
+	width: 32.7rem;
+	height: fit-content;
+	background-color: var(--color-white);
+	display: flex;
+	flex-direction: column;
+	padding: 2.4rem;
+	border-radius: 1rem;
+}
+
+form > div {
+	display: flex;
+	flex-direction: column;
+}
+
+form > input,
+form > div > input {
+	background-color: var(--color-white);
+	width: 27.9rem;
+	height: 5.6rem;
+	border: 1px solid #dedede;
+	border-radius: 5px;
+	padding: 1.5rem 2rem;
+	font-size: 1.4rem;
+	line-height: 2.5rem;
+	letter-spacing: 0.25px;
+	font-weight: var(--font-weight-semi-bold);
+	font-style: normal;
+	color: var(--color-dark-purple);
+	opacity: 0.75;
+	margin-top: 1.9rem;
+}
+
+form > div > img {
+	width: 2.4rem;
+	height: 2.4rem;
+	position: absolute;
+	transform: translate(-2rem, 3.6rem);
+	align-self: flex-end;
+}
+
+form > div > .error-msg {
+	align-self: flex-end;
+	font-weight: var(--font-weight-regular);
+	font-style: italic;
+	color: var(--color-orange);
+	font-size: 1.1rem;
+	line-height: 1.65rem;
+	margin-top: 0.6rem;
+}
+
+input[type='submit'] {
+	background-color: var(--color-green);
+	color: var(--color-white);
+	opacity: 1;
+	cursor: pointer;
+	font-style: normal;
+	font-weight: var(--font-weight-semi-bold);
+	font-size: 1.5rem;
+	line-height: 2.6rem;
+	text-align: center;
+	letter-spacing: 0.1rem;
+	text-transform: uppercase;
+	border-radius: 0.5rem;
+	box-shadow: inset 0px -4px 0px rgba(0, 0, 0, 0.0908818);
+}
+
+input[type='submit']:hover {
+	background-color: #77e2b3;
+}
+
+.tos {
+	margin-top: 0.8rem;
+	color: #bab7d4;
+	font-size: 1.1rem;
+	line-height: 2.1rem;
+	font-weight: var(--font-weight-medium);
+	font-style: normal;
+	text-align: center;
+}
+
+.tos > span {
+	color: var(--color-orange);
+	font-weight: var(--font-weight-bold);
+}
+
+/* 1065px */
+@media (min-width: 66.5625em) {
+	body {
+		flex-direction: row;
+	}
+
+	header {
+		align-self: flex-start;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 52.5rem;
+		height: 22rem;
+		text-align: left;
+		margin-top: 15rem;
+		margin-right: 4.5rem;
+	}
+
+	h1 {
+		font-size: 5rem;
+		line-height: 5.5rem;
+		letter-spacing: -0.520833px;
+	}
+
+	.deal-container {
+		width: 54rem;
+		height: 6rem;
+	}
+
+	form {
+		width: 54rem;
+		padding: 4rem;
+	}
+
+	form > input,
+	form > div > input {
+		width: 46rem;
+		height: 5.6rem;
+		line-height: 2.6rem;
+	}
+}
+
+.hidden {
+	display: none;
+}
