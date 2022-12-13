@@ -10,6 +10,9 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
+const mainMenuButton = document.querySelector('.main-menu')
+const mainMenu = document.querySelector('.menu-dropdown')
+const deleteAllWorkoutsBtn = document.querySelector('.delete-all-workouts')
 
 class Workout {
   constructor(distance, duration, coords) {
@@ -61,7 +64,21 @@ class App {
     this._toggleElevationField();
     this._newWorkout();
     this._toggleLocation();
+    this._toggleMenu()
+    this._deleteAllWorkouts()
   }
+
+
+  _toggleMenu() {
+    mainMenuButton.addEventListener('click', e => mainMenu.classList.toggle('--hidden'))
+  }
+
+  _deleteAllWorkouts() {
+    deleteAllWorkoutsBtn.addEventListener('click', e => {
+      this.reset()
+    })
+  }
+
 
   _getWorkouts() {
     const workouts = JSON.parse(localStorage.getItem('workouts'));
@@ -127,14 +144,29 @@ class App {
     this.map.on('click', mapEvent => {
       form.classList.remove('hidden');
       inputDistance.focus();
-      this.lastClicked = mapEvent;
+      this.lastClicked = [mapEvent.latlng.lat, mapEvent.latlng.lng];
     });
   }
+
+
 
   _toggleLocation() {
     containerWorkouts.addEventListener('click', e => {
       const target = e.target.closest('.workout');
-      if (target) {
+      if (e.target.classList.contains('workout-button')) {
+        target.querySelector('.edit-dropdown').classList.toggle('--hidden')
+      }
+      else if (e.target.classList.contains('delete-workout')) {
+        target.remove()
+      }
+      else if (e.target.classList.contains('edit-workout')) {
+        const id = target.dataset.id
+        const workout = this.workouts.find(w => w.id === id)
+        this.lastClicked = workout.coords
+        target.remove()
+        this._setFormData(workout)
+      }
+      else if (target) {
         const workout = this.workouts.find(el => el.id === target.dataset.id);
         workout.count++;
         this.map.setView(workout.coords);
@@ -147,6 +179,15 @@ class App {
       inputCadence.parentElement.classList.toggle('form__row--hidden');
       inputElevation.parentElement.classList.toggle('form__row--hidden');
     });
+  }
+
+  _setFormData(workout) {
+    form.classList.toggle('hidden')
+    inputType.value = workout.name.toLowerCase();
+    inputDistance.value = workout.distance;
+    inputDuration.value = workout.duration;
+    inputCadence.value = workout.cadence ? workout.cadence : '';
+    inputElevation.value = workout.elevationGain ? workout.elevationGain : '';
   }
 
   _clearFormData() {
@@ -170,7 +211,7 @@ class App {
   _getFormData() {
     const distance = Number(inputDistance.value);
     const duration = Number(inputDuration.value);
-    const coords = [this.lastClicked.latlng.lat, this.lastClicked.latlng.lng];
+    const coords = [this.lastClicked];
     const cadence = Number(inputCadence.value);
     const elevationGain = Number(inputElevation.value);
     if (inputType.value === 'running')
@@ -233,6 +274,11 @@ class App {
       workoutObject.date[1]
     }</h2>
     <img class="workout-button" src="images/edit-button.png">
+    <div class="edit-dropdown --hidden">
+					<div class="edit-arrow-left"></div>
+					<button class="edit-workout">Edit</button>
+					<button class="delete-workout">Delete</button>
+				</div>
       <div class="workout__details">
         <span class="workout__icon">🏃‍♂️</span>
         <span class="workout__value">${workoutObject.distance}</span>
@@ -264,6 +310,12 @@ class App {
     <h2 class="workout__title">Cycling on ${months[workoutObject.date[0]]} ${
       workoutObject.date[1]
     }</h2>
+    <img class="workout-button" src="images/edit-button.png">
+    <div class="edit-dropdown --hidden">
+					<div class="edit-arrow-left"></div>
+					<button class="edit-workout">Edit</button>
+					<button class="delete-workout">Delete</button>
+				</div>
     <div class="workout__details">
       <span class="workout__icon">🚴‍♀️</span>
       <span class="workout__value">${workoutObject.distance}</span>
