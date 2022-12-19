@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <script defer src="../src/index.js"></script>
+  <title>Tic Tac Toe</title>
+</head>
+<body>
+  <main>
+  <section class="pick-screen-container">
+    <div class="xo-header-container">
+      <img src="assets/icon-x.svg" alt="">
+      <img src="assets/icon-o.svg" alt="">
+    </div>
+    <div class="pick-container">
+      <h2>Pick Players 1's Mark</h2>
+      <div class="xo-button-container">
+        <button class="x-button">
+          <img src="assets/icon-x.svg" alt="">
+        </button>
+        <button class="o-button">
+          <img src="assets/icon-o.svg" alt="">
+        </button>
+      </div>
+      <p class="remember-sentence">
+        Remember - X goes first
+      </p>
+    </div>
+    <button class="new-game-vs-pc-button">
+      New Game (VS CPU)
+    </button>
+    <button class="new-game-vs-player">
+      New Game (VS Player)
+    </button>
+  </section>
+  <section class="active-game-container">
+    <div class="active-header-container">
+      <div class="active-xo-header-container">
+        <img src="assets/icon-x.svg" alt="">
+        <img src="assets/icon-o.svg" alt="">
+      </div>
+      <div class="active-turn-notifier">
+        <img src="assets/icon-x.svg" alt="">
+        <p>Turn</p>
+      </div>
+      <button class="active-reset-button">
+        <img src="assets/icon-restart.svg" alt="">
+      </button>
+    </div>
+    <div class="active-tile-container">
+      <div class="active-game-tile"></div>
+      <div class="active-game-tile"></div>
+      <div class="active-game-tile"></div>
+      <div class="active-game-tile"></div>
+      <div class="active-game-tile"></div>
+      <div class="active-game-tile"></div>
+      <div class="active-game-tile"></div>
+      <div class="active-game-tile"></div>
+      <div class="active-game-tile"></div>
+    </div>
+    <div class="active-score-container">
+      <div class="active-x-score-container">
+        <p class="active-x-score-label"></p>
+        <p class="active-x-score"></p>
+      </div>
+      <div class="active-tile-score-container">
+        <p class="active-tile-label"></p>
+        <p class="active-tile-score"></p>
+      </div>
+      <div class="active-o-score-container">
+        <p class="active-o-score-label"></p>
+        <p class="active-o-score"></p>
+      </div>
+    </div>
+  </section>
+  </main>
+  <section class="pop-up"></section>
+</body>
+</html>
