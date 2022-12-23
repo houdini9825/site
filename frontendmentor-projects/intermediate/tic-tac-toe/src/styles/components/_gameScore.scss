@@ -1,12 +1,17 @@
 @use './../abstracts/variables' as v;
 @use './../abstracts/mixins' as mix;
+@use './../abstracts/breakpoints' as brk;
 
 
 .active-x-score-container, .active-tie-score-container, .active-o-score-container {
   @include mix.flex-center-column;
-  width: 9.6rem;
+  width: 100%;
   height: 6.4rem;
   border-radius: 1rem;
+
+  @include brk.medium-screen {
+    height: 7.2rem;
+  }
 }
 
 .active-x-score-container {
@@ -27,6 +32,10 @@
   line-height: 1.8rem;
   letter-spacing: 0.875px;
   color: v.$color-dark-blue;
+
+  @include brk.medium-screen {
+    font-size: 1.4rem;
+  }
 }
 
 .active-x-score, .active-tie-score, .active-o-score {
@@ -34,5 +43,11 @@
   font-size: 2rem;
   letter-spacing: 1.25px;
   line-height: 2.5rem;
+
+  @include brk.medium-screen {
+    font-size: 2.4rem;
+    letter-spacing: 1.5px;
+    line-height: 3rem;
+  }
 }
 
