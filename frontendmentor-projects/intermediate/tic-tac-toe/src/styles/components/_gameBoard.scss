@@ -1,7 +1,9 @@
-.active-tile-container {
+@use './../abstracts/variables' as v;
 
-}
 
 .active-game-tile {
-  
+  width: 9.6rem;
+  height: 9.6rem;
+  background-color: v.$color-blue;
+  border-radius: 1rem;
 }

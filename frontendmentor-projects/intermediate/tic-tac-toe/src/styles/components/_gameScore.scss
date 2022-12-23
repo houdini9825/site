@@ -1,45 +1,38 @@
+@use './../abstracts/variables' as v;
+@use './../abstracts/mixins' as mix;
 
 
-.active-score-container {
-  .active-x-score-container {
-
-  }
-
-  .active-tie-score-container {
-
-  }
-
-  .active-o-score-container {
-
-  }
+.active-x-score-container, .active-tie-score-container, .active-o-score-container {
+  @include mix.flex-center-column;
+  width: 9.6rem;
+  height: 6.4rem;
+  border-radius: 1rem;
 }
 
 .active-x-score-container {
-  .active-x-score-label {
-
-  }
-
-  .active-x-score {
-
-  }
+  background-color: v.$color-light-green;
 }
 
 .active-tie-score-container {
-  .active-tie-score-label {
-
-  }
-
-  .active-tie-score {
-
-  }
+  background-color: v.$color-grey;
 }
 
 .active-o-score-container {
-  .active-o-score-label {
-
-  }
-
-  .active-o-score {
-
-  }
+  background-color: v.$color-dark-orange;
 }
+
+.active-x-score-label, .active-tie-score-label, .active-o-score-label {
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.875px;
+  color: v.$color-dark-blue;
+}
+
+.active-x-score, .active-tie-score, .active-o-score {
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 1.25px;
+  line-height: 2.5rem;
+}
+

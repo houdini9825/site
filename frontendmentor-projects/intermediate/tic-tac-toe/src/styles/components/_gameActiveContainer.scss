@@ -5,52 +5,38 @@
 .active-game-container {
 	width: 32.8rem;
 	height: 51.6rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 2rem;
 }
 
-.active-game-container {
-	.active-header-container {
-		@include mix.flex-center;
-		justify-content: space-between;
-		width: 100%;
-	}
+// .active-xo-header-container {
+// }
 
-	/*.active-tile-container {
-     Seperate file 
-  } */
-
-	/*.active-score-container {
-     Seperate file 
-  } */
+.active-turn-notifier {
+	@include mix.flex-center;
+	width: 9.6rem;
+	height: 4rem;
+	background-color: v.$color-blue;
+	border-radius: 0.5rem;
 }
 
-.active-header-container {
-	// .active-xo-header-container {
-	// }
+.active-reset-button {
+	@include mix.flex-center;
+	@include mix.reset-button;
+	width: 4rem;
+	height: 4rem;
+	background-color: v.$color-grey;
+	border-radius: 0.5rem;
+	justify-self: end;
 
-	.active-turn-notifier {
-		@include mix.flex-center;
-		width: 9.6rem;
-		height: 4rem;
-		background-color: v.$color-blue;
-		border-radius: 0.5rem;
+	&:hover {
+		cursor: pointer;
+		background-color: v.$color-white;
 	}
 
-	.active-reset-button {
-		@include mix.flex-center;
-		@include mix.reset-button;
-		width: 4rem;
-		height: 4rem;
-		background-color: v.$color-grey;
-		border-radius: 0.5rem;
-
-		&:hover {
-			cursor: pointer;
-			background-color: v.$color-white;
-		}
-
-    &:active {
-      @include mix.clicked-button;
-    }
+	&:active {
+		@include mix.clicked-button;
 	}
 }
 
@@ -58,7 +44,7 @@
 	img {
 		width: 3.2rem;
 		height: 3.2rem;
-		margin-left: 0.8rem;
+		margin-right: 0.8rem;
 	}
 }
 
@@ -66,7 +52,7 @@
 	.current-turn-image {
 		width: 1.6rem;
 		height: 1.6rem;
-    margin-right: 0.9rem;
+		margin-right: 0.9rem;
 	}
 
 	p {
