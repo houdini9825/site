@@ -17,8 +17,8 @@
 
 @mixin menu-button {
 	@include reset-button;
-  color: v.$color-dark-blue;
-  text-align: center;
+	color: v.$color-dark-blue;
+	text-align: center;
 	border-radius: 1.5rem;
 }
 

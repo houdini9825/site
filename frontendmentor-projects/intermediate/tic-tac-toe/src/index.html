@@ -11,7 +11,7 @@
 </head>
 <body>
   <main>
-  <section class="menu-container">
+  <section class="menu-container hidden">
     <div class="xo-header-container">
       <img src="assets/icon-x.svg" alt="">
       <img src="assets/icon-o.svg" alt="">
@@ -37,14 +37,14 @@
       New Game (VS Player)
     </button>
   </section>
-  <section class="active-game-container hidden">
+  <section class="active-game-container">
     <div class="active-header-container">
       <div class="active-xo-header-container">
         <img src="assets/icon-x.svg" alt="">
         <img src="assets/icon-o.svg" alt="">
       </div>
       <div class="active-turn-notifier">
-        <img src="assets/icon-x.svg" alt="">
+        <img class="current-turn-image" src="assets/icon-x.svg" alt="">
         <p>Turn</p>
       </div>
       <button class="active-reset-button">

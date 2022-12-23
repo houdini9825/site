@@ -1,0 +1,86 @@
+@use './../abstracts/mixins' as mix;
+@use './../abstracts/variables' as v;
+@use './../abstracts/breakpoints' as brk;
+
+.active-game-container {
+	width: 32.8rem;
+	height: 51.6rem;
+}
+
+.active-game-container {
+	.active-header-container {
+		@include mix.flex-center;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	/*.active-tile-container {
+     Seperate file 
+  } */
+
+	/*.active-score-container {
+     Seperate file 
+  } */
+}
+
+.active-header-container {
+	// .active-xo-header-container {
+	// }
+
+	.active-turn-notifier {
+		@include mix.flex-center;
+		width: 9.6rem;
+		height: 4rem;
+		background-color: v.$color-blue;
+		border-radius: 0.5rem;
+	}
+
+	.active-reset-button {
+		@include mix.flex-center;
+		@include mix.reset-button;
+		width: 4rem;
+		height: 4rem;
+		background-color: v.$color-grey;
+		border-radius: 0.5rem;
+
+		&:hover {
+			cursor: pointer;
+			background-color: v.$color-white;
+		}
+
+    &:active {
+      @include mix.clicked-button;
+    }
+	}
+}
+
+.active-xo-header-container {
+	img {
+		width: 3.2rem;
+		height: 3.2rem;
+		margin-left: 0.8rem;
+	}
+}
+
+.active-turn-notifier {
+	.current-turn-image {
+		width: 1.6rem;
+		height: 1.6rem;
+    margin-right: 0.9rem;
+	}
+
+	p {
+		font-weight: 700;
+		color: v.$color-grey;
+		font-size: 1.4rem;
+		line-height: 1.8rem;
+		letter-spacing: 0.875px;
+	}
+}
+
+.active-reset-button {
+	img {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+}
