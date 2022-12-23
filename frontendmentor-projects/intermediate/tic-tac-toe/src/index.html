@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  <link rel="stylesheet" href="styles/style.css">
-  <script defer src="../src/index.js"></script>
+  <link rel="stylesheet" href="styles/style.scss">
+  <script type="module" src="scripts/controllers/controller.js"></script>
   <title>Tic Tac Toe</title>
 </head>
 <body>
   <main>
-  <section class="pick-screen-container">
+  <section class="menu-container">
     <div class="xo-header-container">
       <img src="assets/icon-x.svg" alt="">
       <img src="assets/icon-o.svg" alt="">
@@ -33,11 +33,11 @@
     <button class="new-game-vs-pc-button">
       New Game (VS CPU)
     </button>
-    <button class="new-game-vs-player">
+    <button class="new-game-vs-player-button">
       New Game (VS Player)
     </button>
   </section>
-  <section class="active-game-container">
+  <section class="active-game-container hidden">
     <div class="active-header-container">
       <div class="active-xo-header-container">
         <img src="assets/icon-x.svg" alt="">
@@ -67,9 +67,9 @@
         <p class="active-x-score-label"></p>
         <p class="active-x-score"></p>
       </div>
-      <div class="active-tile-score-container">
-        <p class="active-tile-label"></p>
-        <p class="active-tile-score"></p>
+      <div class="active-tie-score-container">
+        <p class="active-tie-label"></p>
+        <p class="active-tie-score"></p>
       </div>
       <div class="active-o-score-container">
         <p class="active-o-score-label"></p>
@@ -78,6 +78,6 @@
     </div>
   </section>
   </main>
-  <section class="pop-up"></section>
+  <section class="pop-up hidden"></section>
 </body>
 </html>

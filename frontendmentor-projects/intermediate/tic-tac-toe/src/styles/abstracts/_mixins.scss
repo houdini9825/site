@@ -1,0 +1,27 @@
+@use './variables' as v;
+
+@mixin flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+@mixin flex-center-column {
+	@include flex-center;
+	flex-direction: column;
+}
+
+@mixin reset-button {
+	border: none;
+	outline: none;
+}
+
+@mixin menu-button {
+	@include reset-button;
+  color: v.$color-dark-blue;
+  text-align: center;
+	border-radius: 1.5rem;
+}
+
+@mixin clicked-button {
+	translate: 0 0.1rem;
+}

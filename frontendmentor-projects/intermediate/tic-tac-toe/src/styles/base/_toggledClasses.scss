@@ -1,0 +1,9 @@
+@use './../abstracts/variables' as v;
+
+#mark-button-active {
+  background-color: v.$color-grey;
+
+  &:hover {
+    background-color: v.$color-white;
+  }
+}
