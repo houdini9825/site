@@ -10,6 +10,10 @@ export class Player {
     this.boardPositions = new Set();
   }
 
+  getInfo() {
+    return {score: this.score, id: this.id, char: this.char}
+  }
+
   makeMove(move) {
     this.boardPositions.add(move)
     return move

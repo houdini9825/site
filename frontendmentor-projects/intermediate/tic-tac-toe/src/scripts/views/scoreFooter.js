@@ -1,7 +1,5 @@
 class ScoreFooter {
-	// #xScoreContainer = document.querySelector('.active-x-score-container')
-	// #oScoreContainer = document.querySelector('.active-o-score-container')
-	// #tieScoreContainer = document.querySelector('.active-tie-score-container')
+	#allScoreContainers = document.querySelectorAll('.score-container');
 
 	#getContainer(char) {
 		return document.querySelector(`.active-${char}-score-container`);
@@ -10,9 +8,7 @@ class ScoreFooter {
 	setLabel(char, label) {
 		const container = this.#getContainer(char);
 
-		const labelEl = container.querySelector(
-			`.active-${char}-score-label`
-		);
+		const labelEl = container.querySelector(`.active-${char}-score-label`);
 
 		labelEl.textContent = label;
 	}
@@ -24,6 +20,14 @@ class ScoreFooter {
 
 		scoreEl.textContent = newScore;
 	}
+
+	resetAllScores() {
+		this.#allScoreContainers.forEach((c) => {
+			const score = c.querySelector('.score-number');
+
+			score.textContent = '0';
+		});
+	}
 }
 
-export default new ScoreFooter()
+export default new ScoreFooter();

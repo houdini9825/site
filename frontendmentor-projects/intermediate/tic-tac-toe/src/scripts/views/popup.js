@@ -6,6 +6,18 @@ class PopupView {
 	#xImage = xImage;
 	#oImage = oImage;
 
+  addHandlerPopup(handler) {
+    this.#parentElement.addEventListener('click', handler)
+  }
+
+  showPopup() {
+    this.#parentElement.classList.remove('hidden')
+  }
+
+  hidePopup() {
+    this.#parentElement.classList.add('hidden')
+  }
+
 	renderWinPopup(data) {
     const msg = data.msg;
     const color = data.char === 'x' ? 'dark-green' : 'dark-orange';
@@ -17,10 +29,10 @@ class PopupView {
       <p class="${color}">Takes the round</p>
     </div>
     <div class="popup-buttons-container">
-      <button class="quit-btn">
+      <button class="popup-btn quit-btn">
         Quit
       </button>
-      <button class="next-round-btn">
+      <button class="popup-btn next-round-btn">
         Next Round
       </button>
     </div>`;
@@ -31,10 +43,10 @@ class PopupView {
   renderTiePopup() {
     const html = `<p class="tied-restart-msg">Round Tied</p>
     <div class="popup-buttons-container">
-      <button class="quit-btn">
+      <button class="popup-btn quit-btn">
         Quit
       </button>
-      <button class="next-round-btn">
+      <button class="popup-btn next-round-btn">
         Next Round
       </button>
     </div>`;
@@ -45,11 +57,11 @@ class PopupView {
   renderRestartPopup() {
     const html = `<p class="tied-restart-msg">Round Tied</p>
     <div class="popup-buttons-container">
-      <button class="cancel-btn">
-        Quit
+      <button class="popup-btn cancel-btn">
+        No, cancel
       </button>
-      <button class="restart-btn">
-        Next Round
+      <button class="popup-btn restart-btn">
+        Yes, restart
       </button>
     </div>`;
 

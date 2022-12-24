@@ -1,6 +1,8 @@
 import {Player} from './player.js';
 import {Computer} from './computer.js';
 
+export let state;
+
 class TicTacToe {
 	constructor(player1, player2, vsComputer=true) {
 		this.player1 = player1;
@@ -37,18 +39,41 @@ class TicTacToe {
     }
     return false
   }
+
+  makeMove(move) {
+    if (this.currentActing.id === 'Computer') this.#computerMakeMove()
+    else this.#playerMakeMove(move)
+  }
+
+  #playerMakeMove(move) {
+    this.currentActing.makeMove(move)
+    this.#updateBoard()
+    this.#changeActing()
+  }
+
+  #computerMakeMove() {
+    this.currentActing.makeMove(this.board)
+    this.#updateBoard()
+    this.#changeActing()
+  }
+
+  getCurrentActingInfo() {
+    return this.currentActing.getInfo()
+  }
 }
 
 
 
-export function playerVsComputer() {
-  const player1 = new Player('x', 'Player 1')
-  const computer = new Computer('o', 'Computer')
-  return new TicTacToe(player1, computer)
+export function playerVsComputer(char) {
+  char2 = char === 'x' ? 'o' : 'x';
+  const player1 = new Player(char, 'Player 1')
+  const computer = new Computer(char2, 'Computer', 'easy')
+  state = new TicTacToe(player1, computer)
 }
 
-export function playerVsplayer() {
-  const player1 = new Player('x', 'Player 1')
-  const player2 = new Player('o', 'Player 2')
-  return new TicTacToe(player1, player2, false)
+export function playerVsplayer(char) {
+  char2 = char === 'x' ? 'o' : 'x';
+  const player1 = new Player(char, 'Player 1')
+  const player2 = new Player(char2, 'Player 2')
+  state = new TicTacToe(player1, player2, false)
 }

@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<main>
-			<section class="menu-container hidden">
+			<section class="menu-container">
 				<div class="xo-header-container">
 					<img src="assets/icon-x.svg" alt="" />
 					<img src="assets/icon-o.svg" alt="" />
@@ -24,21 +24,30 @@
 				<div class="pick-container">
 					<h2>Pick Players 1's Mark</h2>
 					<div class="xo-button-container">
-						<button class="x-button">
+						<button
+							id="char-button-active"
+							class="x-button main-menu-char-btn"
+							data-val="x"
+						>
 							<img src="assets/icon-x.svg" alt="" />
 						</button>
-						<button class="o-button">
+						<button
+							class="o-button main-menu-char-btn"
+							data-val="o"
+						>
 							<img src="assets/icon-o.svg" alt="" />
 						</button>
 					</div>
 					<p class="remember-sentence">Remember - X goes first</p>
 				</div>
-				<button class="new-game-vs-pc-button">New Game (VS CPU)</button>
-				<button class="new-game-vs-player-button">
+				<button class="new-game-btn new-game-vs-pc-button">
+					New Game (VS CPU)
+				</button>
+				<button class="new-game-btn new-game-vs-player-button">
 					New Game (VS Player)
 				</button>
 			</section>
-			<section class="active-game-container">
+			<section class="active-game-container hidden">
 				<div class="active-xo-header-container">
 					<img src="assets/icon-x.svg" alt="" />
 					<img src="assets/icon-o.svg" alt="" />
@@ -54,28 +63,26 @@
 				<button class="active-reset-button">
 					<img src="assets/icon-restart.svg" alt="" />
 				</button>
-				<div id="game-tile-1" class="active-game-tile">
-					<img src="assets/icon-x.svg" alt="" />
+				<div id="game-tile-1" class="not-selected active-game-tile"></div>
+				<div id="game-tile-2" class="not-selected active-game-tile"></div>
+				<div id="game-tile-3" class="not-selected active-game-tile"></div>
+				<div id="game-tile-4" class="not-selected active-game-tile"></div>
+				<div id="game-tile-5" class="not-selected active-game-tile"></div>
+				<div id="game-tile-6" class="not-selected active-game-tile"></div>
+				<div id="game-tile-7" class="not-selected active-game-tile"></div>
+				<div id="game-tile-8" class="not-selected active-game-tile"></div>
+				<div id="game-tile-9" class="not-selected active-game-tile"></div>
+				<div class="active-x-score-container score-container">
+					<p class="active-x-score-label score-label">X (You)</p>
+					<p class="active-x-score score-number">0</p>
 				</div>
-				<div id="game-tile-2" class="active-game-tile"></div>
-				<div id="game-tile-3" class="active-game-tile"></div>
-				<div id="game-tile-4" class="active-game-tile"></div>
-				<div id="game-tile-5" class="active-game-tile"></div>
-				<div id="game-tile-6" class="active-game-tile"></div>
-				<div id="game-tile-7" class="active-game-tile"></div>
-				<div id="game-tile-8" class="active-game-tile"></div>
-				<div id="game-tile-9" class="active-game-tile"></div>
-				<div class="active-x-score-container">
-					<p class="active-x-score-label">X (You)</p>
-					<p class="active-x-score">14</p>
+				<div class="active-tie-score-container score-container">
+					<p class="active-tie-score-label score-label">Ties</p>
+					<p class="active-tie-score score-number">0</p>
 				</div>
-				<div class="active-tie-score-container">
-					<p class="active-tie-score-label">Ties</p>
-					<p class="active-tie-score">32</p>
-				</div>
-				<div class="active-o-score-container">
-					<p class="active-o-score-label">O (CPU)</p>
-					<p class="active-o-score">11</p>
+				<div class="active-o-score-container score-container">
+					<p class="active-o-score-label score-label">O (CPU)</p>
+					<p class="active-o-score score-number">0</p>
 				</div>
 			</section>
 		</main>

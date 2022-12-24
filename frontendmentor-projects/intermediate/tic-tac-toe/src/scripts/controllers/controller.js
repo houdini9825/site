@@ -1,6 +1,19 @@
-import popupView from '../views/popup.js';
-import scoreFooter from '../views/scoreFooter.js';
+import headerInit from './headerCtrl.js';
+import gameBoardInit from './gameBoardCtrl.js';
+import popupInit from './popupCtrl.js';
+import menuInit from './menuCtrl.js';
 
-// popupView.renderWinPopup({msg: 'Player 1 wins!', char: 'x'})
+function init() {
+  headerInit()
+  gameBoardInit()
+  popupInit()
+  menuInit()
+}
+
+init()
+
+
+
+
 
 
