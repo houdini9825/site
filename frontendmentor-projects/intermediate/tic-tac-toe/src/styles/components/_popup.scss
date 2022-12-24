@@ -3,86 +3,144 @@
 @use '../abstracts/mixins' as mix;
 
 .pop-up-container {
-  @include mix.flex-center-column;
+	@include mix.flex-center-column;
 
-  position: absolute;
-  align-self: center;
-  width: 100%;
-  height: 22.8rem;
-  background-color: v.$color-blue;
+	position: absolute;
+	align-self: center;
+	width: 100%;
+	height: 22.8rem;
+	background-color: v.$color-blue;
+
+  @include brk.medium-screen {
+    height: 26.6rem;
+  }
 }
 
 .pop-up-container {
-  font-weight: 700;
+	font-weight: 700;
 
-  .game-complete-msg {
-    font-size: 1.4rem;
-    line-height: 1.8rem;
-    letter-spacing: 0.875px;
-    color: v.$color-grey;
-  }
+	.game-complete-msg {
+		font-size: 1.4rem;
+		line-height: 1.8rem;
+		letter-spacing: 0.875px;
+		color: v.$color-grey;
 
-  .takes-round-container {
-    @include mix.flex-center;
-    margin-top: 1.6rem;
-  }
+    @include brk.medium-screen {
+      font-size: 1.6rem;
+      line-height: 2rem;
+      letter-spacing: 1px;
+    }
+	}
 
-  .popup-buttons-container {
-    @include mix.flex-center;
-    margin-top: 2.4rem;
-    height: 5.2rem;
-  }
+	.takes-round-container {
+		@include mix.flex-center;
+		margin-top: 1.6rem;
+	}
+
+	.popup-buttons-container {
+		@include mix.flex-center;
+		margin-top: 2.4rem;
+		height: 5.2rem;
+	}
 }
 
 .takes-round-container {
-  img {
-    width: 3rem;
-    height: 3rem;
-    margin-right: 0.8rem;
-  }
+	img {
+		width: 3rem;
+		height: 3rem;
+		margin-right: 0.8rem;
 
-  p {
-    font-size: 2.4rem;
-    line-height: 3rem;
-    letter-spacing: 1.5px;
-  }
+    @include brk.medium-screen {
+      width: 6.4rem;
+      height: 6.4rem;
+    }
+	}
+
+	p {
+		font-size: 2.4rem;
+		line-height: 3rem;
+		letter-spacing: 1.5px;
+
+    @include brk.medium-screen {
+      font-size: 4rem;
+      line-height: 5rem;
+      letter-spacing: 2.5px;
+    }
+	}
 }
 
 .popup-buttons-container {
-  button {
-    @include mix.reset-button;
-    border-radius: 1rem;
-    font-weight: 700;
-    font-size: 1.6rem;
-    line-height: 2rem;
-    letter-spacing: 1px;
-    color: v.$color-dark-blue;
-    height: 100%;
+	button {
+		@include mix.reset-button;
+		border-radius: 1rem;
+		font-weight: 700;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		letter-spacing: 1px;
+		color: v.$color-dark-blue;
+		height: 100%;
 
-    &:active {
-      @include mix.clicked-button;
-    }
+		&:active {
+			@include mix.clicked-button;
+		}
+	}
+
+	.quit-btn {
+		background-color: v.$color-grey;
+		margin-right: 1.6rem;
+		width: 7.6rem;
+
+		&:hover {
+			cursor: pointer;
+			background-color: v.$color-white;
+		}
+	}
+
+	.next-round-btn {
+		background-color: v.$color-dark-orange;
+		width: 14.6rem;
+
+		&:hover {
+			cursor: pointer;
+			background-color: v.$color-light-orange;
+		}
+	}
+}
+
+/* TIE */
+
+.tied-restart-msg {
+	font-weight: 700;
+	font-size: 2.4rem;
+	line-height: 3rem;
+	letter-spacing: 1.5px;
+	color: v.$color-grey;
+
+  @include brk.medium-screen {
+    font-size: 4rem;
+    line-height: 5rem;
+    letter-spacing: 2.5px;
   }
+}
 
-  .quit-btn {
-    background-color: v.$color-grey;
-    margin-right: 1.6rem;
-    width: 7.6rem;
+/* RESTART */
 
-    &:hover {
-      cursor: pointer;
-      background-color: v.$color-white;
-    }
+.cancel-btn {
+  background-color: v.$color-grey;
+	width: 14.6rem;
 
-  }
+  &:hover {
+		cursor: pointer;
+		background-color: v.$color-white;
+	}
+}
 
-  .next-round-btn {
-    background-color: v.$color-dark-orange;
-    width: 14.6rem;
+.restart-btn {
+	background-color: v.$color-dark-orange;
+	width: 14.6rem;
 
-    &:hover {
-      cursor: pointer;
-      background-color: v.$color-light-orange;
-    }
-  }
+	&:hover {
+		cursor: pointer;
+		background-color: v.$color-light-orange;
+	}
 }

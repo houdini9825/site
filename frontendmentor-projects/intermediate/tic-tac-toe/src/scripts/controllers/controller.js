@@ -1,3 +1,5 @@
 import popupView from '../views/popup.js';
 
-popupView.renderPopup('Player 2 wins!')
+// popupView.renderWinPopup({msg: 'Player 1 wins!', char: 'x'})
+
+popupView.renderTiePopup()
