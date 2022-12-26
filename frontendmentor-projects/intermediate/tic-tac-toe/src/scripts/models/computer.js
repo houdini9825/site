@@ -96,7 +96,6 @@ export class Computer extends Player {
 	#checkIfCanWin(possibleMoves) {
 		let move;
 
-
 		for (const tile of possibleMoves.values()) {
 			if (move) break;
 			for (const lst of solutions[tile]) {
@@ -118,7 +117,6 @@ export class Computer extends Player {
 			for (const lst of solutions[tile]) {
 				if (oppMoves.has(lst[0]) && oppMoves.has(lst[1]) && possibleMoves.has(Number(tile))) {
 					move = tile;
-					console.log('working')
 					break;
 				}
 			}

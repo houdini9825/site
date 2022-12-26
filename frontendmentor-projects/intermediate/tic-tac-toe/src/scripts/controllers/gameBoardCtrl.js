@@ -17,7 +17,7 @@ export function computerTurn() {
     gameBoard.addCharToTile(tile, computerInfo.char)
   
     if (!checkWin()) changePlayer()
-    else return true}, COMPUTER_DELAY)
+    checkTie()}, COMPUTER_DELAY)
 }
 
 function playerTurn(tile) {
@@ -30,7 +30,9 @@ function playerTurn(tile) {
   game.state.playerMakeMove(tileSelection)
 
   if (!checkWin()) changePlayer()
-  else return true
+  
+
+  checkTie()
 }
 
 function changePlayer() {
@@ -69,8 +71,6 @@ function controlTileClick(e) {
 
   if (game.state.checkIfGameOn() && !game.state.checkIfBoardFull()) playerTurn(tile)
   if (game.state.checkIfGameOn() && !game.state.checkIfBoardFull()) computerTurn()
-
-  checkTie()
 
 }
 
