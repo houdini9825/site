@@ -51,7 +51,7 @@
 	}
 
 	&:active {
-		@include mix.clicked-button;
+		@include mix.clicked-button(0.1rem);
 	}
 }
 

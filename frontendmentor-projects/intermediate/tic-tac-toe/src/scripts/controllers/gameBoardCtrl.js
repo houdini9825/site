@@ -4,27 +4,80 @@ import header from '../views/header.js';
 import gameBoard from '../views/gameboard.js';
 import menu from '../views/menu.js';
 import * as game from '../models/game.js'
+import { COMPUTER_DELAY } from '../config.js';
 
-function controlTileClick(e) {
-  const tile = e.target.closest('.active-game-tile')
-  if (!tile || tile.classList.contains('selected-tile')) return
+export function computerTurn() {
 
+  setTimeout(function() {const move = game.state.computerMakeMove()
+
+    const computerInfo = game.state.getCurrentActingInfo()
+  
+    const tile = gameBoard.getTile(move)
+  
+    gameBoard.addCharToTile(tile, computerInfo.char)
+  
+    if (!checkWin()) changePlayer()
+    else return true}, COMPUTER_DELAY)
+}
+
+function playerTurn(tile) {
   const activePlayer = game.state.getCurrentActingInfo()
 
   const tileSelection = Number(tile.id.slice(-1))
 
   gameBoard.addCharToTile(tile, activePlayer.char)
 
-  game.state.makeMove(tileSelection)
+  game.state.playerMakeMove(tileSelection)
 
-  console.log(game.state)
+  if (!checkWin()) changePlayer()
+  else return true
+}
+
+function changePlayer() {
+  game.state.changeActing()
+
+  header.setCurrentTurnImg(game.state.getCurrentActingInfo())
+}
+
+function checkWin() {
+  if (game.state.checkIfWon()) {
+    const winnerData = game.state.getCurrentActingInfo()
+    popup.renderWinPopup(winnerData)
+    popup.showPopup()
+    scoreFooter.changeScore(winnerData)
+    game.state.turnGameOff()
+    return true
+  }
+  return false
+}
+
+function checkTie() {
+  if (game.state.checkIfBoardFull() && !game.state.checkIfWon()) {
+    game.state.ties++
+    popup.renderTiePopup()
+    popup.showPopup()
+
+    const data = {char: 'tie', score: game.state.ties}
+
+    scoreFooter.changeScore(data)
+  }
+}
+
+function controlTileClick(e) {
+  const tile = e.target.closest('.active-game-tile')
+  if (!tile || tile.classList.contains('selected-tile') || game.state.currentActing.id !== 'You') return
+
+  if (game.state.checkIfGameOn() && !game.state.checkIfBoardFull()) playerTurn(tile)
+  if (game.state.checkIfGameOn() && !game.state.checkIfBoardFull()) computerTurn()
+
+  checkTie()
+
 }
 
 function controlTileHover(e) {
   e.preventDefault()
   const tile = e.target.closest('.active-game-tile')
-  if (!tile || tile.innerHTML) return
-  console.log('hoverin')
+  if (!tile || tile.innerHTML || game.state.getCurrentActingInfo().id === 'CPU') return
 
   const activePlayer = game.state.getCurrentActingInfo()
 
@@ -43,7 +96,7 @@ function controlTileHoverOut(e) {
 
 
 
-export default function gameBoardInit() {
+export function gameBoardInit() {
   gameBoard.addHandlerTileHover(controlTileHover)
   gameBoard.addHandlerTileClick(controlTileClick)
 }

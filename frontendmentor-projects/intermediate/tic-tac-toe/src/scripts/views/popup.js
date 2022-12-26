@@ -19,7 +19,7 @@ class PopupView {
   }
 
 	renderWinPopup(data) {
-    const msg = data.msg;
+    const msg = data.id === 'You' ? 'You won!' : 'Oh no, you lost.';
     const color = data.char === 'x' ? 'dark-green' : 'dark-orange';
     const image = data.char === 'x' ? this.#xImage : this.#oImage;
 
@@ -55,7 +55,7 @@ class PopupView {
   }
 
   renderRestartPopup() {
-    const html = `<p class="tied-restart-msg">Round Tied</p>
+    const html = `<p class="tied-restart-msg">Restart Game?</p>
     <div class="popup-buttons-container">
       <button class="popup-btn cancel-btn">
         No, cancel

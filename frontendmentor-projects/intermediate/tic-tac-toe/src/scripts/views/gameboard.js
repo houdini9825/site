@@ -33,6 +33,10 @@ class GameBoard {
 		});
 	}
 
+	getTile(move) {
+		return this.#gameTiles.find(tile => Number(tile.id.slice(-1)) === move)
+	}
+
 	clearSingleTile(tile) {
 		tile.innerHTML = ''
 	}

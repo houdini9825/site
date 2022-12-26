@@ -22,6 +22,6 @@
 	border-radius: 1.5rem;
 }
 
-@mixin clicked-button {
-	translate: 0 0.1rem;
+@mixin clicked-button($val) {
+	translate: 0 $val;
 }

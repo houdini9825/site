@@ -4,6 +4,8 @@ import scoreFooter from '../views/scoreFooter.js';
 import gameBoard from '../views/gameboard.js';
 import menu from '../views/menu.js';
 import * as game from '../models/game.js';
+import header from '../views/header.js';
+import { checkIfComputerGoesFirst } from '../helpers.js';
 
 function mainHandler(e) {
 	e.preventDefault();
@@ -17,12 +19,19 @@ function mainHandler(e) {
 }
 
 function controlNextRoundBtn() {
+	game.state.restartGame()
+	game.state.turnGameOn()
   resetGameBoard()
+	checkIfComputerGoesFirst()
 }
 
 function controlQuitBtn() {
+	game.state.turnGameOff()
+	game.state.resetGame()
   gameBoard.hideGame();
 	menu.showMenu();
+	menu.clearDifficulties()
+	menu.clearMenuCharSelection()
   resetGameBoard()
 	scoreFooter.resetAllScores();
 }
@@ -32,13 +41,17 @@ function controlCancelBtn() {
 }
 
 function controlRestartBtn() {
+	game.state.turnGameOn()
+	game.state.resetGame()
   resetGameBoard()
   scoreFooter.resetAllScores()
+	checkIfComputerGoesFirst()
 }
 
 function resetGameBoard() {
   gameBoard.clearAllTiles()
   game.state.clearBoard()
+	header.setCurrentTurnImg(game.state.getCurrentActingInfo())
   popup.hidePopup()
 }
 

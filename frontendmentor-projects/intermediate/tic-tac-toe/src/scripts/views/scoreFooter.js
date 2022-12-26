@@ -5,20 +5,20 @@ class ScoreFooter {
 		return document.querySelector(`.active-${char}-score-container`);
 	}
 
-	setLabel(char, label) {
-		const container = this.#getContainer(char);
+	setLabel(data) {
+		const container = this.#getContainer(data.char);
 
-		const labelEl = container.querySelector(`.active-${char}-score-label`);
+		const labelEl = container.querySelector(`.active-${data.char}-score-label`);
 
-		labelEl.textContent = label;
+		labelEl.textContent = `${data.id} (${data.char.toUpperCase()})`;
 	}
 
-	changeScore(char, newScore) {
-		const container = this.#getContainer(char);
+	changeScore(data) {
+		const container = this.#getContainer(data.char);
 
-		const scoreEl = container.querySelector(`.active-${char}-score`);
+		const scoreEl = container.querySelector(`.active-${data.char}-score`);
 
-		scoreEl.textContent = newScore;
+		scoreEl.textContent = data.score;
 	}
 
 	resetAllScores() {

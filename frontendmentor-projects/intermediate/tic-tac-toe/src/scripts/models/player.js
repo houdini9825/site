@@ -14,6 +14,14 @@ export class Player {
     return {score: this.score, id: this.id, char: this.char}
   }
 
+  resetScore() {
+    this.score = 0;
+  }
+
+  increaseScore() {
+    this.score++
+  }
+
   makeMove(move) {
     this.boardPositions.add(move)
     return move

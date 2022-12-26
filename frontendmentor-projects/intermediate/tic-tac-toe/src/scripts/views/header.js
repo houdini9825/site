@@ -3,18 +3,17 @@ import oImage from '../../assets/icon-o.svg';
 
 class Header {
   #refreshBtn = document.querySelector('.active-reset-button')
-  #currentTurnImg = document.querySelector('.current-turn-image')
-  #images = [xImage, oImage]
-  #imageIndex = 0;
+  #currentTurnContainer = document.querySelector('.active-turn-notifier')
+  #images = {x: xImage, o: oImage}
 
-  setCurrentTurnImg() {
-    this.#currentTurnImg.setAttribute('src', this.#images[this.#imageIndex])
-    this.#changeCurrentTurnImg()
+  setCurrentTurnImg(data) {
+    this.#currentTurnContainer.innerHTML = ''
+    const html = `
+    <img class="current-turn-image" src="${this.#images[data.char]}" />
+    <p>Turn</p>`
+    this.#currentTurnContainer.insertAdjacentHTML('afterbegin', html)
   }
 
-  #changeCurrentTurnImg() {
-    this.#imageIndex === 0 ? this.#imageIndex = 1 : this.#imageIndex = 0;
-  }
 
   addHandlerRefreshBtn(handler) {
     this.#refreshBtn.addEventListener('click', handler)

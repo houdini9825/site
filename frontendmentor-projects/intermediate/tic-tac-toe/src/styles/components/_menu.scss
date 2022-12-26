@@ -43,28 +43,11 @@
 			line-height: 2.5rem;
 			letter-spacing: 1.25px;
 		}
-		&:active {
-			@include mix.clicked-button;
-		}
 	}
 
 	.new-game-vs-pc-button {
 		@include mix.menu-button;
 		background-color: v.$color-dark-orange;
-		margin-top: 3.2rem;
-
-		@include brk.medium-screen {
-			margin-top: 4rem;
-		}
-		&:hover {
-			cursor: pointer;
-			background-color: v.$color-light-orange;
-		}
-	}
-
-	.new-game-vs-player-button {
-		@include mix.menu-button;
-		background-color: v.$color-dark-green;
 		margin-top: 1.6rem;
 
 		@include brk.medium-screen {
@@ -72,10 +55,99 @@
 		}
 		&:hover {
 			cursor: pointer;
+			background-color: v.$color-light-orange;
+		}
+
+		&:active {
+			@include mix.clicked-button(0.1rem);
+		}
+	}
+
+	.difficulty-container {
+		display: flex;
+		margin-top: 3.2rem;
+		width: 100%;
+		height: 5.6rem;
+		border-radius: 1.5rem;
+		overflow: hidden;
+		@include brk.medium-screen {
+			margin-top: 4rem;
+		}
+	}
+}
+
+.error-message {
+		@include mix.flex-center-column;
+		position: absolute;
+		z-index: 2;
+		background-color: v.$color-soft-red;
+		width: 32.7rem;
+		height: 10rem;
+		border-radius: 0.5rem;
+		margin-top: 3.2rem;
+		text-align: center;
+		align-self: flex-start;
+		padding: 0.4rem;
+
+		@include brk.medium-screen {
+			width: 46rem;
+		}
+
+		.close-error {
+			@include mix.reset-button;
+			background-color: transparent;
+			position: absolute;
+			align-self: flex-end;
+			translate: 0 -3.25rem;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			&:active {
+				@include mix.clicked-button(-3.2rem)
+			}
+
+			 img {
+				width: 2rem;
+				height: 2rem;
+			 }
+		}
+
+	p {
+		color: black;
+		font-weight: 700;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		letter-spacing: 1px;
+	}
+}
+
+.difficulty-container {
+	button {
+		@include mix.reset-button;
+		background-color: v.$color-dark-green;
+		&:hover {
+			cursor: pointer;
+			background-color: v.$color-white;
+		}
+
+		&:active {
+			@include mix.clicked-button(0.05rem);
+		}
+	}
+
+	.selected-difficulty {
+		background-color: v.$color-light-green;
+
+		&:hover {
+			cursor: pointer;
 			background-color: v.$color-light-green;
 		}
 	}
 }
+
+
 
 .xo-header-container {
 	img {
