@@ -548,92 +548,25 @@ function init() {
 }
 init();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./menuCtrl.js":"gjz5A","./popupCtrl.js":"8feyN","./headerCtrl.js":"iGcR5","./gameBoardCtrl.js":"29kK7"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"gjz5A":[function(require,module,exports) {
+},{"./headerCtrl.js":"iGcR5","./gameBoardCtrl.js":"29kK7","./popupCtrl.js":"8feyN","./menuCtrl.js":"gjz5A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iGcR5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _popupJs = require("../views/popup.js");
 var _popupJsDefault = parcelHelpers.interopDefault(_popupJs);
-var _scoreFooterJs = require("../views/scoreFooter.js");
-var _scoreFooterJsDefault = parcelHelpers.interopDefault(_scoreFooterJs);
+// import scoreFooter from '../views/scoreFooter.js';
 var _headerJs = require("../views/header.js");
 var _headerJsDefault = parcelHelpers.interopDefault(_headerJs);
-var _gameboardJs = require("../views/gameboard.js");
-var _gameboardJsDefault = parcelHelpers.interopDefault(_gameboardJs);
-var _menuJs = require("../views/menu.js");
-var _menuJsDefault = parcelHelpers.interopDefault(_menuJs);
-var _helpersJs = require("../helpers.js");
-var _gameJs = require("../models/game.js");
-function controlMenuNewGameBtn(e) {
-    e.preventDefault();
-    const btn = e.target.closest(".new-game-btn");
-    if (!btn) return;
-    if (!(0, _menuJsDefault.default).checkIfDifficultySelected() || !(0, _menuJsDefault.default).checkIfCharSelected()) return (0, _menuJsDefault.default).showErrorMessage();
-    console.log((0, _menuJsDefault.default).getDifficulty());
-    _gameJs.playerVsComputer((0, _menuJsDefault.default).getSelection(), (0, _menuJsDefault.default).getDifficulty());
-    (0, _headerJsDefault.default).setCurrentTurnImg(_gameJs.state.getCurrentActingInfo());
-    (0, _scoreFooterJsDefault.default).setLabel(_gameJs.state.player1.getInfo());
-    (0, _scoreFooterJsDefault.default).setLabel(_gameJs.state.player2.getInfo());
-    _gameJs.state.turnGameOn();
-    (0, _menuJsDefault.default).closeErrorMessage();
-    (0, _menuJsDefault.default).hideMenu();
-    (0, _gameboardJsDefault.default).showGame();
-    (0, _helpersJs.checkIfComputerGoesFirst)();
+// import gameBoard from '../views/gameboard.js';
+function controlRefreshBtn() {
+    (0, _popupJsDefault.default).renderRestartPopup();
+    (0, _popupJsDefault.default).showPopup();
 }
-function controlMenuCharSelection(e) {
-    e.preventDefault();
-    const btn = e.target.closest(".main-menu-char-btn");
-    if (btn) (0, _menuJsDefault.default).changeCharChoice(btn);
+function headerInit() {
+    (0, _headerJsDefault.default).addHandlerRefreshBtn(controlRefreshBtn);
 }
-function controlDifficultySelection(e) {
-    e.preventDefault();
-    if (!e.target.classList.contains("difficulty-choice")) return;
-    (0, _menuJsDefault.default).clearDifficulties();
-    e.target.classList.add("selected-difficulty");
-}
-function controlErrorMessage(e) {
-    e.preventDefault();
-    if (!e.target.closest(".close-error")) return;
-    (0, _menuJsDefault.default).closeErrorMessage();
-}
-function init() {
-    (0, _menuJsDefault.default).addHandlerChangeChar(controlMenuCharSelection);
-    (0, _menuJsDefault.default).addHandlerNewGame(controlMenuNewGameBtn);
-    (0, _menuJsDefault.default).addHandlerSelectDifficulty(controlDifficultySelection);
-    (0, _menuJsDefault.default).addHandlerCloseErrorMessage(controlErrorMessage);
-}
-exports.default = init;
+exports.default = headerInit;
 
-},{"../views/popup.js":"95gpZ","../views/scoreFooter.js":"jRh1w","../views/header.js":"gMhUr","../views/gameboard.js":"02ZQ3","../views/menu.js":"9MGhl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../models/game.js":"a9QkL","../helpers.js":"luDvE"}],"95gpZ":[function(require,module,exports) {
+},{"../views/popup.js":"95gpZ","../views/header.js":"gMhUr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"95gpZ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _iconXSvg = require("../../assets/icon-x.svg");
@@ -742,34 +675,37 @@ exports.getOrigin = getOrigin;
 },{}],"3RtGn":[function(require,module,exports) {
 module.exports = require("9ea65f49b2f5f714").getBundleURL("8yhHL") + "icon-o.f1e028aa.svg" + "?" + Date.now();
 
-},{"9ea65f49b2f5f714":"lgJ39"}],"jRh1w":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-class ScoreFooter {
-    #allScoreContainers = document.querySelectorAll(".score-container");
-    #getContainer(char) {
-        return document.querySelector(`.active-${char}-score-container`);
-    }
-    setLabel(data) {
-        const container = this.#getContainer(data.char);
-        const labelEl = container.querySelector(`.active-${data.char}-score-label`);
-        labelEl.textContent = `${data.id} (${data.char.toUpperCase()})`;
-    }
-    changeScore(data) {
-        const container = this.#getContainer(data.char);
-        const scoreEl = container.querySelector(`.active-${data.char}-score`);
-        scoreEl.textContent = data.score;
-    }
-    resetAllScores() {
-        this.#allScoreContainers.forEach((c)=>{
-            const score = c.querySelector(".score-number");
-            score.textContent = "0";
+},{"9ea65f49b2f5f714":"lgJ39"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
         });
-    }
-}
-exports.default = new ScoreFooter();
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gMhUr":[function(require,module,exports) {
+},{}],"gMhUr":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _iconXSvg = require("../../assets/icon-x.svg");
@@ -796,7 +732,121 @@ class Header {
 }
 exports.default = new Header();
 
-},{"../../assets/icon-x.svg":"2BdmC","../../assets/icon-o.svg":"3RtGn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"02ZQ3":[function(require,module,exports) {
+},{"../../assets/icon-x.svg":"2BdmC","../../assets/icon-o.svg":"3RtGn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"29kK7":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "computerTurn", ()=>computerTurn);
+parcelHelpers.export(exports, "gameBoardInit", ()=>gameBoardInit);
+var _popupJs = require("../views/popup.js");
+var _popupJsDefault = parcelHelpers.interopDefault(_popupJs);
+var _scoreFooterJs = require("../views/scoreFooter.js");
+var _scoreFooterJsDefault = parcelHelpers.interopDefault(_scoreFooterJs);
+var _headerJs = require("../views/header.js");
+var _headerJsDefault = parcelHelpers.interopDefault(_headerJs);
+var _gameboardJs = require("../views/gameboard.js");
+var _gameboardJsDefault = parcelHelpers.interopDefault(_gameboardJs);
+var _menuJs = require("../views/menu.js");
+var _menuJsDefault = parcelHelpers.interopDefault(_menuJs);
+var _gameJs = require("../models/game.js");
+var _configJs = require("../config.js");
+function computerTurn() {
+    setTimeout(function() {
+        const move = _gameJs.state.computerMakeMove();
+        const computerInfo = _gameJs.state.getCurrentActingInfo();
+        const tile = (0, _gameboardJsDefault.default).getTile(move);
+        (0, _gameboardJsDefault.default).addCharToTile(tile, computerInfo.char);
+        if (!checkWin()) changePlayer();
+        checkTie();
+    }, (0, _configJs.COMPUTER_DELAY));
+}
+function playerTurn(tile) {
+    const activePlayer = _gameJs.state.getCurrentActingInfo();
+    const tileSelection = Number(tile.id.slice(-1));
+    (0, _gameboardJsDefault.default).addCharToTile(tile, activePlayer.char);
+    _gameJs.state.playerMakeMove(tileSelection);
+    if (!checkWin()) changePlayer();
+    checkTie();
+}
+function changePlayer() {
+    _gameJs.state.changeActing();
+    (0, _headerJsDefault.default).setCurrentTurnImg(_gameJs.state.getCurrentActingInfo());
+}
+function checkWin() {
+    if (_gameJs.state.checkIfWon()) {
+        const winnerData = _gameJs.state.getCurrentActingInfo();
+        (0, _popupJsDefault.default).renderWinPopup(winnerData);
+        (0, _popupJsDefault.default).showPopup();
+        (0, _scoreFooterJsDefault.default).changeScore(winnerData);
+        _gameJs.state.turnGameOff();
+        return true;
+    }
+    return false;
+}
+function checkTie() {
+    if (_gameJs.state.checkIfBoardFull() && !_gameJs.state.checkIfWon()) {
+        _gameJs.state.ties++;
+        (0, _popupJsDefault.default).renderTiePopup();
+        (0, _popupJsDefault.default).showPopup();
+        const data = {
+            char: "tie",
+            score: _gameJs.state.ties
+        };
+        (0, _scoreFooterJsDefault.default).changeScore(data);
+    }
+}
+function controlTileClick(e) {
+    const tile = e.target.closest(".active-game-tile");
+    if (!tile || tile.classList.contains("selected-tile") || _gameJs.state.currentActing.id !== "You") return;
+    if (_gameJs.state.checkIfGameOn() && !_gameJs.state.checkIfBoardFull()) playerTurn(tile);
+    if (_gameJs.state.checkIfGameOn() && !_gameJs.state.checkIfBoardFull()) computerTurn();
+}
+function controlTileHover(e) {
+    e.preventDefault();
+    const tile = e.target.closest(".active-game-tile");
+    if (!tile || tile.innerHTML || _gameJs.state.getCurrentActingInfo().id === "CPU") return;
+    const activePlayer = _gameJs.state.getCurrentActingInfo();
+    (0, _gameboardJsDefault.default).hoverTile(tile, activePlayer.char);
+    (0, _gameboardJsDefault.default).addHandlerTileHoverRemoval(tile, controlTileHoverOut);
+}
+function controlTileHoverOut(e) {
+    e.preventDefault();
+    const tile = e.target;
+    if (tile.classList.contains("selected-tile")) return;
+    (0, _gameboardJsDefault.default).clearSingleTile(tile);
+}
+function gameBoardInit() {
+    (0, _gameboardJsDefault.default).addHandlerTileHover(controlTileHover);
+    (0, _gameboardJsDefault.default).addHandlerTileClick(controlTileClick);
+}
+
+},{"../views/popup.js":"95gpZ","../views/scoreFooter.js":"jRh1w","../views/header.js":"gMhUr","../views/gameboard.js":"02ZQ3","../views/menu.js":"9MGhl","../models/game.js":"a9QkL","../config.js":"6pDRM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jRh1w":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class ScoreFooter {
+    #allScoreContainers = document.querySelectorAll(".score-container");
+    #getContainer(char) {
+        return document.querySelector(`.active-${char}-score-container`);
+    }
+    setLabel(data) {
+        const container = this.#getContainer(data.char);
+        const labelEl = container.querySelector(`.active-${data.char}-score-label`);
+        labelEl.textContent = `${data.id} (${data.char.toUpperCase()})`;
+    }
+    changeScore(data) {
+        const container = this.#getContainer(data.char);
+        const scoreEl = container.querySelector(`.active-${data.char}-score`);
+        scoreEl.textContent = data.score;
+    }
+    resetAllScores() {
+        this.#allScoreContainers.forEach((c)=>{
+            const score = c.querySelector(".score-number");
+            score.textContent = "0";
+        });
+    }
+}
+exports.default = new ScoreFooter();
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"02ZQ3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _iconXSvg = require("../../assets/icon-x.svg");
@@ -1336,104 +1386,7 @@ class Computer extends (0, _playerJs.Player) {
     }
 }
 
-},{"./player.js":"agPxu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"luDvE":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "checkIfComputerGoesFirst", ()=>checkIfComputerGoesFirst);
-var _gameJs = require("./models/game.js.js");
-var _gameBoardCtrlJs = require("./controllers/gameBoardCtrl.js.js");
-function checkIfComputerGoesFirst() {
-    if (_gameJs.state.player2.getInfo().char === "x") (0, _gameBoardCtrlJs.computerTurn)();
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./models/game.js":"a9QkL","./controllers/gameBoardCtrl.js":"29kK7"}],"29kK7":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "computerTurn", ()=>computerTurn);
-parcelHelpers.export(exports, "gameBoardInit", ()=>gameBoardInit);
-var _popupJs = require("../views/popup.js");
-var _popupJsDefault = parcelHelpers.interopDefault(_popupJs);
-var _scoreFooterJs = require("../views/scoreFooter.js");
-var _scoreFooterJsDefault = parcelHelpers.interopDefault(_scoreFooterJs);
-var _headerJs = require("../views/header.js");
-var _headerJsDefault = parcelHelpers.interopDefault(_headerJs);
-var _gameboardJs = require("../views/gameboard.js");
-var _gameboardJsDefault = parcelHelpers.interopDefault(_gameboardJs);
-var _menuJs = require("../views/menu.js");
-var _menuJsDefault = parcelHelpers.interopDefault(_menuJs);
-var _gameJs = require("../models/game.js");
-var _configJs = require("../config.js");
-function computerTurn() {
-    setTimeout(function() {
-        const move = _gameJs.state.computerMakeMove();
-        const computerInfo = _gameJs.state.getCurrentActingInfo();
-        const tile = (0, _gameboardJsDefault.default).getTile(move);
-        (0, _gameboardJsDefault.default).addCharToTile(tile, computerInfo.char);
-        if (!checkWin()) changePlayer();
-        checkTie();
-    }, (0, _configJs.COMPUTER_DELAY));
-}
-function playerTurn(tile) {
-    const activePlayer = _gameJs.state.getCurrentActingInfo();
-    const tileSelection = Number(tile.id.slice(-1));
-    (0, _gameboardJsDefault.default).addCharToTile(tile, activePlayer.char);
-    _gameJs.state.playerMakeMove(tileSelection);
-    if (!checkWin()) changePlayer();
-    checkTie();
-}
-function changePlayer() {
-    _gameJs.state.changeActing();
-    (0, _headerJsDefault.default).setCurrentTurnImg(_gameJs.state.getCurrentActingInfo());
-}
-function checkWin() {
-    if (_gameJs.state.checkIfWon()) {
-        const winnerData = _gameJs.state.getCurrentActingInfo();
-        (0, _popupJsDefault.default).renderWinPopup(winnerData);
-        (0, _popupJsDefault.default).showPopup();
-        (0, _scoreFooterJsDefault.default).changeScore(winnerData);
-        _gameJs.state.turnGameOff();
-        return true;
-    }
-    return false;
-}
-function checkTie() {
-    if (_gameJs.state.checkIfBoardFull() && !_gameJs.state.checkIfWon()) {
-        _gameJs.state.ties++;
-        (0, _popupJsDefault.default).renderTiePopup();
-        (0, _popupJsDefault.default).showPopup();
-        const data = {
-            char: "tie",
-            score: _gameJs.state.ties
-        };
-        (0, _scoreFooterJsDefault.default).changeScore(data);
-    }
-}
-function controlTileClick(e) {
-    const tile = e.target.closest(".active-game-tile");
-    if (!tile || tile.classList.contains("selected-tile") || _gameJs.state.currentActing.id !== "You") return;
-    if (_gameJs.state.checkIfGameOn() && !_gameJs.state.checkIfBoardFull()) playerTurn(tile);
-    if (_gameJs.state.checkIfGameOn() && !_gameJs.state.checkIfBoardFull()) computerTurn();
-}
-function controlTileHover(e) {
-    e.preventDefault();
-    const tile = e.target.closest(".active-game-tile");
-    if (!tile || tile.innerHTML || _gameJs.state.getCurrentActingInfo().id === "CPU") return;
-    const activePlayer = _gameJs.state.getCurrentActingInfo();
-    (0, _gameboardJsDefault.default).hoverTile(tile, activePlayer.char);
-    (0, _gameboardJsDefault.default).addHandlerTileHoverRemoval(tile, controlTileHoverOut);
-}
-function controlTileHoverOut(e) {
-    e.preventDefault();
-    const tile = e.target;
-    if (tile.classList.contains("selected-tile")) return;
-    (0, _gameboardJsDefault.default).clearSingleTile(tile);
-}
-function gameBoardInit() {
-    (0, _gameboardJsDefault.default).addHandlerTileHover(controlTileHover);
-    (0, _gameboardJsDefault.default).addHandlerTileClick(controlTileClick);
-}
-
-},{"../views/popup.js":"95gpZ","../views/scoreFooter.js":"jRh1w","../views/header.js":"gMhUr","../views/gameboard.js":"02ZQ3","../views/menu.js":"9MGhl","../models/game.js":"a9QkL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../config.js":"6pDRM"}],"6pDRM":[function(require,module,exports) {
+},{"./player.js":"agPxu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6pDRM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "COMPUTER_DELAY", ()=>COMPUTER_DELAY);
@@ -1501,24 +1454,71 @@ function popupInit() {
 }
 exports.default = popupInit;
 
-},{"../views/popup.js":"95gpZ","../views/scoreFooter.js":"jRh1w","../views/gameboard.js":"02ZQ3","../views/menu.js":"9MGhl","../models/game.js":"a9QkL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../views/header.js":"gMhUr","../helpers.js":"luDvE"}],"iGcR5":[function(require,module,exports) {
+},{"../views/popup.js":"95gpZ","../views/scoreFooter.js":"jRh1w","../views/gameboard.js":"02ZQ3","../views/menu.js":"9MGhl","../models/game.js":"a9QkL","../views/header.js":"gMhUr","../helpers.js":"luDvE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"luDvE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "checkIfComputerGoesFirst", ()=>checkIfComputerGoesFirst);
+var _gameJs = require("./models/game.js.js");
+var _gameBoardCtrlJs = require("./controllers/gameBoardCtrl.js.js");
+function checkIfComputerGoesFirst() {
+    if (_gameJs.state.player2.getInfo().char === "x") (0, _gameBoardCtrlJs.computerTurn)();
+}
+
+},{"./models/game.js":"a9QkL","./controllers/gameBoardCtrl.js":"29kK7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gjz5A":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _popupJs = require("../views/popup.js");
 var _popupJsDefault = parcelHelpers.interopDefault(_popupJs);
-// import scoreFooter from '../views/scoreFooter.js';
+var _scoreFooterJs = require("../views/scoreFooter.js");
+var _scoreFooterJsDefault = parcelHelpers.interopDefault(_scoreFooterJs);
 var _headerJs = require("../views/header.js");
 var _headerJsDefault = parcelHelpers.interopDefault(_headerJs);
-// import gameBoard from '../views/gameboard.js';
-function controlRefreshBtn() {
-    (0, _popupJsDefault.default).renderRestartPopup();
-    (0, _popupJsDefault.default).showPopup();
+var _gameboardJs = require("../views/gameboard.js");
+var _gameboardJsDefault = parcelHelpers.interopDefault(_gameboardJs);
+var _menuJs = require("../views/menu.js");
+var _menuJsDefault = parcelHelpers.interopDefault(_menuJs);
+var _helpersJs = require("../helpers.js");
+var _gameJs = require("../models/game.js");
+function controlMenuNewGameBtn(e) {
+    e.preventDefault();
+    const btn = e.target.closest(".new-game-btn");
+    if (!btn) return;
+    if (!(0, _menuJsDefault.default).checkIfDifficultySelected() || !(0, _menuJsDefault.default).checkIfCharSelected()) return (0, _menuJsDefault.default).showErrorMessage();
+    console.log((0, _menuJsDefault.default).getDifficulty());
+    _gameJs.playerVsComputer((0, _menuJsDefault.default).getSelection(), (0, _menuJsDefault.default).getDifficulty());
+    (0, _headerJsDefault.default).setCurrentTurnImg(_gameJs.state.getCurrentActingInfo());
+    (0, _scoreFooterJsDefault.default).setLabel(_gameJs.state.player1.getInfo());
+    (0, _scoreFooterJsDefault.default).setLabel(_gameJs.state.player2.getInfo());
+    _gameJs.state.turnGameOn();
+    (0, _menuJsDefault.default).closeErrorMessage();
+    (0, _menuJsDefault.default).hideMenu();
+    (0, _gameboardJsDefault.default).showGame();
+    (0, _helpersJs.checkIfComputerGoesFirst)();
 }
-function headerInit() {
-    (0, _headerJsDefault.default).addHandlerRefreshBtn(controlRefreshBtn);
+function controlMenuCharSelection(e) {
+    e.preventDefault();
+    const btn = e.target.closest(".main-menu-char-btn");
+    if (btn) (0, _menuJsDefault.default).changeCharChoice(btn);
 }
-exports.default = headerInit;
+function controlDifficultySelection(e) {
+    e.preventDefault();
+    if (!e.target.classList.contains("difficulty-choice")) return;
+    (0, _menuJsDefault.default).clearDifficulties();
+    e.target.classList.add("selected-difficulty");
+}
+function controlErrorMessage(e) {
+    e.preventDefault();
+    if (!e.target.closest(".close-error")) return;
+    (0, _menuJsDefault.default).closeErrorMessage();
+}
+function init() {
+    (0, _menuJsDefault.default).addHandlerChangeChar(controlMenuCharSelection);
+    (0, _menuJsDefault.default).addHandlerNewGame(controlMenuNewGameBtn);
+    (0, _menuJsDefault.default).addHandlerSelectDifficulty(controlDifficultySelection);
+    (0, _menuJsDefault.default).addHandlerCloseErrorMessage(controlErrorMessage);
+}
+exports.default = init;
 
-},{"../views/popup.js":"95gpZ","../views/header.js":"gMhUr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["dfQ8j","e0sIE"], "e0sIE", "parcelRequire1ecf")
+},{"../views/popup.js":"95gpZ","../views/scoreFooter.js":"jRh1w","../views/header.js":"gMhUr","../views/gameboard.js":"02ZQ3","../views/menu.js":"9MGhl","../helpers.js":"luDvE","../models/game.js":"a9QkL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["dfQ8j","e0sIE"], "e0sIE", "parcelRequire1ecf")
 
 //# sourceMappingURL=index.cc4a0a36.js.map
