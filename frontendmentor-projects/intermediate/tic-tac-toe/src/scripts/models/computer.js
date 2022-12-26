@@ -73,7 +73,7 @@ export class Computer extends Player {
 	}
 
 	#makeMoveMedium(board) {
-		const [possibleMoves, oppMoves] = this.#getOpponentAndPossibleMoves();
+		const [possibleMoves, oppMoves] = this.#getOpponentAndPossibleMoves(board);
 
 		return this.#mediumAlg(possibleMoves, oppMoves, board);
 	}
