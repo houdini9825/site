@@ -116,7 +116,7 @@ class TicTacToe {
 }
 
 export function playerVsComputer(char, difficulty) {
-	char2 = char === 'x' ? 'o' : 'x';
+	const char2 = char === 'x' ? 'o' : 'x';
 	const player1 = new Player(char, 'You');
 	const computer = new Computer(char2, 'CPU', difficulty);
 	state = new TicTacToe(player1, computer);
