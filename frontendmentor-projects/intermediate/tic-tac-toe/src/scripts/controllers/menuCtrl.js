@@ -13,7 +13,6 @@ function controlMenuNewGameBtn(e) {
 
   if (!menu.checkIfDifficultySelected() || !menu.checkIfCharSelected()) return menu.showErrorMessage()
 
-  console.log(menu.getDifficulty())
   game.playerVsComputer(menu.getSelection(), menu.getDifficulty())
 
   header.setCurrentTurnImg(game.state.getCurrentActingInfo())

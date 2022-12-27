@@ -182,7 +182,6 @@ export class Computer extends Player {
 	}
 
 	#getRandomElement(arr) {
-		console.log('testing')
 		return arr[Math.floor(Math.random() * arr.length)];
 	}
 }
