@@ -1,0 +1,65 @@
+@use './../abstracts/mixins' as mix;
+@use './../abstracts/variables' as v;
+@use './../abstracts/breakpoints' as brk;
+
+header {
+  @include mix.flex-center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 2.4rem;
+
+  @include brk.large-screen {
+    margin-bottom: 3rem;
+  }
+}
+
+.notifications-header-container {
+  @include mix.flex-center;
+  h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    color: v.$color-dark-gray-blue;
+    font-weight: v.$font-weight-bold;
+
+    @include brk.large-screen {
+      font-size: 2.4rem;
+      line-height: 3rem;
+    }
+  }
+
+
+  .notification-number-container {
+    @include mix.flex-center;
+    background-color: v.$color-blue;
+    border-radius: 0.6rem;
+    width: 3.2rem;
+    height: 2.5rem;
+    margin-left: 0.9rem;
+
+    .notification-number {
+      color: v.$color-white;
+      font-weight: v.$font-weight-bold;
+      font-size: 1.6rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+
+.mark-as-read {
+  font-weight: v.$font-weight-regular;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: v.$color-dark-grayish-blue;
+
+  &:hover {
+    cursor: pointer;
+    color: v.$color-blue;
+  }
+
+  @include brk.large-screen {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+}
+

@@ -1,0 +1,16 @@
+@use './../abstracts/mixins' as mix;
+@use './../abstracts/variables' as v;
+@use './../abstracts/breakpoints' as brk;
+
+main {
+  @include mix.flex-center-column;
+  background-color: v.$color-white;
+  padding: 2.4rem 1.6rem;
+  width: 37.5rem;
+  border-radius: 1.5rem;
+
+  @include brk.large-screen {
+    width: 73rem;
+    padding: 3rem;
+  }
+}

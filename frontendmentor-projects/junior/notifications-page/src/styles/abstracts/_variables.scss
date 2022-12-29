@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap');
+
+$color-red: hsl(1, 90%, 64%);
+$color-blue: hsl(219, 85%, 26%);
+$color-white: hsl(0, 0%, 100%);
+$color-very-light-grayish-blue: hsl(210, 60%, 98%);
+$color-light-grayish-blue-1: hsl(211, 68%, 94%);
+$color-light-grayish-blue-2: hsl(205, 33%, 90%);
+$color-grayish-blue: hsl(219, 14%, 63%);
+$color-dark-grayish-blue: hsl(219, 12%, 42%);
+$color-dark-gray-blue: hsl(224, 21%, 14%);
+
+$font-family-primary: 'Plus Jakarta Sans', sans-serif;
+
+$font-weight-bold: 800;
+$font-weight-semi-bold: 700;
+$font-weight-regular: 500;
+
+$large-screen:  45.625em;
+
+// @use './../abstracts/mixins' as mix;
+// @use './../abstracts/variables' as v;
+// @use './../abstracts/breakpoints' as brk;

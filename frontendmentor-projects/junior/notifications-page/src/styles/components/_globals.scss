@@ -1,0 +1,26 @@
+@use './../abstracts/mixins' as mix;
+@use './../abstracts/variables' as v;
+
+* {
+	font-family: v.$font-family-primary;
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+	height: fit-content;
+}
+
+html {
+	font-size: 62.5%;
+	box-sizing: border-box;
+}
+
+body {
+	@include mix.flex-center;
+	// width: 100vw;
+	height: 100vh;
+	background-color: v.$color-very-light-grayish-blue;
+}
+
+.hidden {
+	display: none;
+}

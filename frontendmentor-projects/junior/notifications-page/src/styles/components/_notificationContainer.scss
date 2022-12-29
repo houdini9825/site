@@ -1,0 +1,7 @@
+@use './../abstracts/mixins' as mix;
+@use './../abstracts/variables' as v;
+@use './../abstracts/breakpoints' as brk;
+
+.notifications-container {
+  width: 100%;
+}

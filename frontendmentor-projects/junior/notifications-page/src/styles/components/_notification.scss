@@ -1,0 +1,118 @@
+@use './../abstracts/mixins' as mix;
+@use './../abstracts/variables' as v;
+@use './../abstracts/breakpoints' as brk;
+
+.notification {
+	display: flex;
+	justify-content: space-between;
+	padding: 1.6rem;
+	margin-top: 1rem;
+
+  @include brk.large-screen {
+    padding: 1.8rem 2rem;
+  }
+}
+
+.notification-left-container {
+	@include mix.flex-center;
+
+
+	.profile-img {
+		width: 3.9rem;
+		height: 3.9rem;
+		border-radius: 50%;
+
+    @include brk.large-screen {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+	}
+
+	.notification-text-container {
+    margin-left: 1.3rem;
+	}
+}
+
+.not-seen {
+	background-color: v.$color-very-light-grayish-blue;
+	border-radius: 0.8rem;
+}
+
+.notification-description {
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	color: v.$color-dark-grayish-blue;
+
+  @include brk.large-screen {
+      font-size: 1.6rem;
+      line-height: 2rem;
+  }
+
+	.person-name {
+		font-weight: v.$font-weight-bold;
+		color: v.$color-dark-gray-blue;
+
+    &:hover {
+      cursor: pointer;
+    }
+	}
+
+	.notification-entity {
+		font-weight: v.$font-weight-semi-bold;
+		color: v.$color-blue;
+    &:hover {
+      cursor: pointer;
+    }
+	}
+}
+
+.time-since-occurred {
+	font-weight: v.$font-weight-regular;
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	color: v.$color-grayish-blue;
+	margin-top: 0.3rem;
+
+  @include brk.large-screen {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+}
+
+.private-message {
+	border: 1px solid v.$color-light-grayish-blue-2;
+	border-radius: 0.5rem;
+  margin-top: 1.2rem;
+
+	font-weight: v.$font-weight-regular;
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	color: v.$color-dark-grayish-blue;
+	padding: 1.6rem;
+
+  &:hover {
+    background-color: v.$color-light-grayish-blue-1;
+    cursor: pointer;
+  }
+
+  @include brk.large-screen {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+}
+
+.notification-img {
+	width: 3.9rem;
+	height: 3.9rem;
+	border-radius: 0.7rem;
+	float: right;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	@include brk.large-screen {
+		width: 4.5rem;
+		height: 4.5rem;
+	}
+}

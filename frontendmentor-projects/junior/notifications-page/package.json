@@ -5,11 +5,14 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-		"build": "parcel build --dist-dir ./build --public-url ./"
+    "build": "parcel build --dist-dir ./build --public-url ./"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "parcel": "^2.8.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.2"
   }
 }
