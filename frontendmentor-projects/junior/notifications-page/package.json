@@ -1,18 +1,25 @@
 {
-  "name": "notifications-page",
-  "version": "1.0.0",
-  "description": "",
-  "source": "src/index.html",
-  "scripts": {
-    "start": "parcel",
-    "build": "parcel build --dist-dir ./build --public-url ./"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "parcel": "^2.8.2"
-  },
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.8.2"
-  }
+	"name": "notifications-page",
+	"version": "1.0.0",
+	"description": "",
+	"source": "src/index.html",
+	"scripts": {
+		"start": "parcel",
+		"build": "parcel build --dist-dir ./build --public-url ./"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@parcel/resolver-glob": "^2.8.2",
+		"@parcel/transformer-image": "^2.8.2",
+		"parcel": "^2.8.2"
+	},
+	"devDependencies": {
+		"@parcel/transformer-sass": "^2.8.2"
+	},
+	"parcel": {
+		"experiments": {
+			"noParseJson": true
+		}
+	}
 }
