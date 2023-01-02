@@ -1,0 +1,63 @@
+@use './../../abstracts/mixins' as mix;
+@use './../../abstracts/variables' as v;
+@use './../../abstracts/breakpoints' as brk;
+
+.password-length-label {
+	@include mix.flex-center;
+	justify-content: space-between;
+}
+
+.length-label-text {
+	color: v.$color-white;
+	font-size: v.$font-size-xsmall;
+	line-height: 2.1rem;
+
+	@include brk.large-screen {
+		font-size: v.$font-size-small;
+		line-height: 2.4rem;
+	}
+}
+
+.length-value {
+	font-size: v.$font-size-medium;
+	line-height: 3.2rem;
+	color: v.$color-green;
+
+	@include brk.large-screen {
+		font-size: v.$font-size-large;
+		line-height: 4.2rem;
+	}
+}
+
+input[type=range] {
+	-webkit-appearance: none;
+	background: none;
+	margin-top: 1.8rem;
+	margin-bottom: 2rem;
+}
+
+input[type=range]::-moz-range-thumb {
+	-webkit-appearance: none;
+	height: 2.8rem;
+	width: 2.8rem;
+	background-color: v.$color-white;
+	border-radius: 50%;
+
+	&:hover {
+		cursor: pointer;
+		background-color: v.$color-black;
+		border: 2px solid v.$color-green;
+	}
+}
+
+input[type=range]::-moz-range-track {
+	background: v.$color-black;
+}
+
+input[type=range]::-moz-range-progress {
+	-webkit-appearance: none;
+	background: v.$color-green;
+	height: 0.8rem;
+}
+
+

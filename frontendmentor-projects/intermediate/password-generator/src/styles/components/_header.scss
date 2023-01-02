@@ -1,0 +1,15 @@
+@use './../abstracts/mixins' as mix;
+@use './../abstracts/variables' as v;
+@use './../abstracts/breakpoints' as brk;
+
+h1 {
+  font-size: v.$font-size-xsmall;
+  line-height: 2.1rem;
+  color: v.$color-grey;
+  text-align: center;
+
+  @include brk.large-screen {
+    font-size: v.$font-size-medium;
+    line-height: 3.2rem;
+  }
+}

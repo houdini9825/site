@@ -1,0 +1,16 @@
+@use './../../abstracts/mixins' as mix;
+@use './../../abstracts/variables' as v;
+@use './../../abstracts/breakpoints' as brk;
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: v.$color-dark-grey;
+  padding: 1.6rem;
+  margin-top: 1.8rem;
+
+  @include brk.large-screen {
+    padding: 2.4rem 3.2rem;
+    margin-top: 2.4rem;
+  }
+}

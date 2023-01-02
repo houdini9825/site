@@ -1,0 +1,11 @@
+@use './../abstracts/mixins' as mix;
+@use './../abstracts/variables' as v;
+@use './../abstracts/breakpoints' as brk;
+
+main {
+  width: 34.3rem;
+
+  @include brk.large-screen {
+    width: 54rem;
+  }
+}

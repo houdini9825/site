@@ -1,0 +1,48 @@
+@use './../../abstracts/mixins' as mix;
+@use './../../abstracts/variables' as v;
+@use './../../abstracts/breakpoints' as brk;
+
+.incl-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1.6rem;
+}
+
+input[type=checkbox] {
+  @include mix.flex-center;
+  margin-right: 2rem;
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid v.$color-white;
+  
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+input:checked {
+  background-color: v.$color-green;
+  border: none;
+}
+
+input[type=checkbox]::before {
+  content: url("../assets/images/icon-check.svg");
+  translate: 0 0.2rem;
+}
+
+input[type=checkbox] + label {
+  color: v.$color-white;
+  font-size: v.$font-size-xsmall;
+  line-height: 2.1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @include brk.large-screen {
+    font-size: v.$font-size-small;
+    line-height: 2.4rem;
+  }
+}

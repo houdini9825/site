@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.scss">
+    <script type="module" src="./scripts/controllers/controller.js"></script>
+		<title>Password Generator</title>
+	</head>
+	<body>
+		<main>
+			<h1>Password Generator</h1>
+			<section class="password-output-container">
+        <p class="empty password-output">P4$5W0rD</p>
+        <div class="copied-container">
+        <p class="copied-label hidden">Copied</p>
+        <img src="./assets/images/icon-copy.svg" alt="" class="copy-icon">
+        </div>
+      </section>
+			<form>
+				<label class="password-length-label" for="password-length"><p class="length-label-text">Character Length</p><p class="length-value">10</p></label>
+				<input
+					type="range"
+					id="password-length"
+					name="password-length"
+          min="1"
+          max="30"
+          value="10"
+				/>
+        <div class="incl-container">
+				<input
+					type="checkbox"
+					id="incl-uppercase"
+					name="incl-uppercase"
+          checked
+				/>
+				<label for="incl-uppercase">Include Uppercase Letters</label>
+        </div>
+        <div class="incl-container">
+				<input
+					type="checkbox"
+					id="incl-lowercase"
+					name="incl-lowercase"
+          checked
+				/>
+				<label for="incl-lowercase">Include Lowercase Letters</label>
+        </div>
+        <div class="incl-container">
+				<input type="checkbox" id="incl-numbers" name="incl-numbers" checked/>
+				<label for="incl-numbers">Include Numbers</label>
+        </div>
+        <div class="incl-container">
+				<input type="checkbox" id="incl-symbols" name="incl-symbols" checked/>
+				<label for="incl-symbols">Include Symbols</label>
+        </div>
+				<div class="strength-container">
+					<p class="strength-label">Strength</p>
+					<div class="strength-rating-container">
+						<p class="strength-rating-text"></p>
+						<div class="strength-rectangles-container">
+							<div class="strength-rectangle"></div>
+							<div class="strength-rectangle"></div>
+							<div class="strength-rectangle"></div>
+							<div class="strength-rectangle"></div>
+						</div>
+					</div>
+				</div>
+        <button id="generate-btn">Generate<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path fill="#24232C" d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"/></svg>
+        </button>
+			</form>
+		</main>
+	</body>
+</html>

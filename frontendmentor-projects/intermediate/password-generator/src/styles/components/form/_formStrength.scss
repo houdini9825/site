@@ -1,0 +1,77 @@
+@use './../../abstracts/mixins' as mix;
+@use './../../abstracts/variables' as v;
+@use './../../abstracts/breakpoints' as brk;
+
+.strength-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: v.$color-black;
+  padding: 1.4rem 1.6rem;
+  margin-top: 3.2rem;
+  text-transform: uppercase;
+
+  @include brk.large-screen {
+    padding: 2.1rem 3.1rem;
+  }
+
+  .strength-label {
+    font-size: v.$font-size-xsmall;
+    line-height: 2.1rem;
+    color: v.$color-grey;
+
+    @include brk.large-screen {
+      font-size: v.$font-size-small;
+      line-height: 2.4rem;
+    }
+  }
+}
+
+.strength-rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.strength-rating-text {
+  color: v.$color-white;
+  font-size: v.$font-size-small;
+  line-height: 2.4rem;
+  margin-right: 1.6rem;
+
+  @include brk.large-screen {
+    font-size: v.$font-size-medium;
+    line-height: 3.2rem;
+  }
+}
+
+.strength-rectangles-container {
+  display: flex;
+}
+
+.strength-rectangle {
+  width: 1rem;
+  height: 2.8rem;
+  border: 2px solid v.$color-white;
+  margin-right: 0.8rem;
+}
+
+.too-weak {
+  border: none;
+  background-color: v.$color-red;
+}
+
+.weak {
+  border: none;
+  background-color: v.$color-orange;
+}
+
+.medium {
+  border: none;
+  background-color: v.$color-yellow;
+}
+
+.strong {
+  border: none;
+  background-color: v.$color-green;
+}
+

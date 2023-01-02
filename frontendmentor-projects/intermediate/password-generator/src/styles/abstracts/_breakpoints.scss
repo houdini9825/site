@@ -1,0 +1,7 @@
+@use './variables' as v;
+
+@mixin large-screen {
+  @media (min-width: v.$large-screen) {
+    @content;
+  }
+}

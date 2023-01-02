@@ -1,0 +1,39 @@
+@use './../../abstracts/mixins' as mix;
+@use './../../abstracts/variables' as v;
+@use './../../abstracts/breakpoints' as brk;
+
+#generate-btn {
+  @include mix.reset-button;
+  height: 5.6rem;
+  background-color: v.$color-green;
+  color: v.$color-dark-grey;
+  font-size: v.$font-size-xsmall;
+  line-height: 2.1rem;
+  text-transform: uppercase;
+  margin-top: 1.6rem;
+
+  @include brk.large-screen {
+    height: 6.5rem;
+    font-size: v.$font-size-small;
+    line-height: 2.4rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: v.$color-black;
+    color: v.$color-green;
+    border: 2px solid v.$color-green;
+
+    svg > path {
+      fill: v.$color-green;
+    }
+  }
+  svg {
+    margin-left: 1.6rem;
+
+    @include brk.large-screen {
+      margin-left: 2.4rem;
+    }
+  }
+
+}
